@@ -6,6 +6,7 @@ import { UserLayoutRoutes } from './user-layout.routing';
 
 import { CarListComponent } from '../car-list/car-list.component';
 import { SearchComponent } from '../search/search.component';
+import { AdvancedSearchComponent } from '../advanced-search/advanced-search.component';
 
 import { ChartsModule } from 'ng2-charts';
 import { ToastrModule } from 'ngx-toastr';
@@ -28,7 +29,8 @@ import { ComponentsModule } from '../components/components.module';
   ],
   declarations: [
     CarListComponent,
-    SearchComponent
+    SearchComponent,
+    AdvancedSearchComponent
   ],
   bootstrap: [
   ]

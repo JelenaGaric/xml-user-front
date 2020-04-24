@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { ComponentsModule } from './user/components/components.module';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 import { AppComponent } from './app.component';
 
@@ -17,7 +19,9 @@ import {ToastrModule} from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
-    UserLayoutComponent
+    UserLayoutComponent,
+    LoginComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,33 @@
+
+<div ngbDropdown class="d-inline-block">
+  <button class="btn btn-outline-primary" id="dropdownConfig" ngbDropdownToggle>Marka automobila</button>
+  <div ngbDropdownMenu aria-labelledby="dropdownConfig">
+    <div class="px-4 py-3" style="display: flex">
+      <div class="form-inline" style="border-right: 1px solid /*#bfc2c7*/#5294ff;">
+        <button *ngFor='let car of cars' ngbDropdownItem >{{car.name}}</button>
+      </div>
+
+      <div class="form-inline" style="border-right: 1px solid /*#bfc2c7*/#5294ff;">
+        <button *ngFor= 'let carModel of carModels' ngbDropdownItem >{{carModel.name}}</button>
+      </div>
+
+      <div class="form-check" style="border-right: 1px solid /*#bfc2c7*/#5294ff; margin-left: 15px">
+        <div *ngFor = 'let carClass of carClasses' style="width: 100px">
+          <input type="checkbox" class="form-check-input" id="carClassCheck">
+          <label class="form-check-label" for="carClassCheck">
+            {{carClass.name}}
+          </label>
+        </div>
+      </div>
+
+      <div class="form-check"  style="margin-left: 15px">
+        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+        <label class="form-check-label" for="dropdownCheck">
+          Collision Damage Waiver
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
