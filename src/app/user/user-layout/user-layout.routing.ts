@@ -8,8 +8,7 @@ import { AdvancedSearchComponent } from '../advanced-search/advanced-search.comp
 
 export const UserLayoutRoutes: Routes = [
   { path: 'user/carlist', component: CarListComponent },
-  { path: 'search', component: SearchComponent },
+  { path: 'search', component: AdvancedSearchComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegistrationComponent },
-  //{ path: 'user/search', component: AdvancedSearchComponent }
+  { path: 'register', component: RegistrationComponent }
 ];

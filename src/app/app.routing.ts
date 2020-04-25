@@ -11,17 +11,17 @@ import { RegistrationComponent } from './registration/registration.component';
 const routes: Routes = [
   {
     path: '',
-    // redirectTo: '',
-    component: UserLayoutComponent,
-    // pathMatch: 'full',
-    // children: [
-    //  {
-    //  path: '',
-    //  loadChildren: './user/user-layout/user-layout.module#UserLayoutModule'
-    // }]
+     redirectTo: '',
+     component: UserLayoutComponent,
+     pathMatch: 'full',
+     //children: [
+      //{
+      //path: '',
+      //loadChildren: './user/user-layout/user-layout.module#UserLayoutModule'
+     //}]
   },
-  { path: 'register', component: RegistrationComponent },
-  { path: 'login', component: LoginComponent }
+  //{ path: 'register', component: RegistrationComponent },
+  //{ path: 'login', component: LoginComponent }
   
 ];
 

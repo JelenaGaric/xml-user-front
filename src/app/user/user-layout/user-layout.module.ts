@@ -30,7 +30,8 @@ import { ComponentsModule } from '../components/components.module';
   declarations: [
     CarListComponent,
     SearchComponent,
-    AdvancedSearchComponent
+    AdvancedSearchComponent,
+    ComponentsModule
   ],
   bootstrap: [
   ]

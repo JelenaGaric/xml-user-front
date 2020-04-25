@@ -20,10 +20,10 @@
     <app-sidebar></app-sidebar>
     <div class="sidebar-background" ></div>
   </div>
-  <div class="main-panel">
+  <div class="main-panel ps ps--active-y">
     <app-navbar></app-navbar>
-    <router-outlet></router-outlet>
-    <div><!--*ngIf="isMaps('maps')" -->
+    <router-outlet name="main-panel-router"></router-outlet>
+        <div><!--*ngIf="isMaps('maps')" -->
       <app-footer></app-footer>
     </div>
   </div>
