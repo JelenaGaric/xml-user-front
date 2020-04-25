@@ -9,14 +9,15 @@ import { RegistrationComponent } from './registration/registration.component';
 import { UserLayoutModule } from './user/user-layout/user-layout.module';
 
 const routes: Routes = [
-  {path: 'user',
+  {
+  path: 'user',
   component: UserLayoutComponent,
   children: [
     {
       path: '',
       loadChildren: () => UserLayoutModule
     }]},
-  { path: 'register', component: RegistrationComponent },
+  //{ path: 'register', component: RegistrationComponent },
   //{ path: 'login', component: LoginComponent }
   
 ];
