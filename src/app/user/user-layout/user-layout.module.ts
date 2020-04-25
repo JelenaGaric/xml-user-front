@@ -25,13 +25,13 @@ import { ComponentsModule } from '../components/components.module';
     NgbModule,
     ComponentsModule,
     ReactiveFormsModule,
-    DropdownListModule
+    DropdownListModule,
+    ComponentsModule
   ],
   declarations: [
     CarListComponent,
     SearchComponent,
-    AdvancedSearchComponent,
-    ComponentsModule
+    AdvancedSearchComponent
   ],
   bootstrap: [
   ]
