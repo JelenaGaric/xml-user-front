@@ -19,9 +19,7 @@ import {ToastrModule} from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
-    UserLayoutComponent,
-    LoginComponent,
-    RegistrationComponent,
+    UserLayoutComponent
   ],
   imports: [
     BrowserModule,

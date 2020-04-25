@@ -14,6 +14,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DropdownListModule } from 'ngx-dropdown-list';
 
 import { ComponentsModule } from '../components/components.module';
+import { LoginComponent } from 'src/app/login/login.component';
+import { RegistrationComponent } from 'src/app/registration/registration.component';
 
 @NgModule({
   imports: [
@@ -31,7 +33,9 @@ import { ComponentsModule } from '../components/components.module';
   declarations: [
     CarListComponent,
     SearchComponent,
-    AdvancedSearchComponent
+    AdvancedSearchComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   bootstrap: [
   ]
