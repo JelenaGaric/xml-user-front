@@ -4,60 +4,121 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header card-header-danger">
-            <h4 class="card-title">Edit Profile</h4>
-            <p class="card-category">Complete your profile</p>
+            <h4 class="card-title">Search</h4>
+            <!------------1.--------------------->
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-white" id="dropdownConfig" ngbDropdownToggle>Marka automobila</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownConfig">
+                <div class="px-4 py-3" style="display: flex">
+                  <div class="form-inline" style="border-right: 1px solid /*#bfc2c7*/#5294ff;">
+                    <button *ngFor='let car of cars' ngbDropdownItem >{{car.name}}</button>
+                  </div>
+
+                  <div class="form-inline" style="border-right: 1px solid /*#bfc2c7*/#5294ff;">
+                    <button *ngFor= 'let carModel of carModels' ngbDropdownItem >{{carModel.name}}</button>
+                  </div>
+
+                  <div class="form-check" style="border-right: 1px solid /*#bfc2c7*/#5294ff; margin-left: 15px">
+                    <div *ngFor = 'let carClass of carClasses' style="width: 100px">
+                      <input type="checkbox"  id="carClassCheck">
+                      <label  for="carClassCheck">
+                        {{carClass.name}}
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="form-check"  style="margin-left: 15px">
+                    <input type="checkbox" id="dropdownCheck">
+                    <label for="dropdownCheck">
+                      Collision Damage Waiver
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------2.--------->
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-white" id="price-dropdown" ngbDropdownToggle>Cena</button>
+              <div ngbDropdownMenu aria-labelledby="price">
+                <div class="px-4 py-3" style="display: flex">
+                  <div class="form-inline">
+                    <label class="form-check-label" for="price-from">
+                      Od
+                    </label>
+                    <input id = "price-from" type="number">
+                  </div>
+
+                  <div class="form-inline">
+                    <label class="form-check-label" for="price-to">
+                      Do
+                    </label>
+                    <input id = "price-to" type="number">
+                  </div>
+
+                </div>
+
+                <div class="dropdown-divider"></div>
+                <button ngbDropdownItem style="text-align: center">Primeni</button>
+                <button ngbDropdownItem style="text-align: center;">Poništi</button>
+
+              </div>
+            </div>
+
+            <!-------------2-------------------------------->
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-white" id="fuelType-dropdown" ngbDropdownToggle>Vrsta goriva</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button *ngFor='let fuelType of fuelTypes' ngbDropdownItem>{{fuelType.name}}</button>
+              </div>
+            </div>
+
+            <!-------------3------------------------------->
+
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-white" id="transmissionType-dropdown" ngbDropdownToggle>Menjač</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button *ngFor='let transmissionType of transmissionTypes' ngbDropdownItem>{{transmissionType.name}}</button>
+              </div>
+            </div>
+
+            <!----------------4-------------------------->
+
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-white" id="km-dropdown" ngbDropdownToggle>Kilometraža</button>
+              <div ngbDropdownMenu aria-labelledby="price">
+                <div class="px-4 py-3" >
+
+                  <div class="form-inline">
+                    <label class="form-check-label" for="km-to">
+                      Pređeno do:
+                    </label>
+                    <input id = "km-to" type="number">
+                  </div>
+
+                  <div class="form-inline">
+                    <label class="form-check-label" for="input-km">
+                      Planiram preći do:
+                    </label>
+                    <input id = "input-km" type="number">
+                  </div>
+
+                </div>
+                <!--<div class="dropdown-divider"></div>
+                <button ngbDropdownItem style="text-align: center">Primeni</button>
+                <button ngbDropdownItem style="text-align: center;">Poništi</button>-->
+
+              </div>
+            </div>
           </div>
           <div class="card-body">
             <form>
-              <div class="row">
-                <div class="col-md-5">
-                 
-                </div>
-                <div class="col-md-3">
-                 
-                </div>
-                <div class="col-md-4">
-                  
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                 
-                </div>
-                <div class="col-md-6">
-                  
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4">
-                  
-                </div>
-                <div class="col-md-4">
-                  
-                </div>
-                <div class="col-md-4">
-                  
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <label>About Me</label>
-                  
-                  <!-- <div class="form-group">
+              <button mat-raised-button type="submit" class="btn btn-danger pull-right">Pretraži</button>
 
-                      <div class="form-group">
-                          <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                          <textarea class="form-control" rows="5"></textarea>
-                      </div>
-                  </div> -->
+              <div class="row">
+                <div class="col-md-12">
+
                 </div>
               </div>
-              <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
               <div class="clearfix"></div>
             </form>
           </div>
