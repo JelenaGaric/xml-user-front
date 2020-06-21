@@ -18,14 +18,26 @@ export class CarRatingService {
       })
     };
 
-    getAllCarRatings(): Observable<CarRating[]> {
-      return this.http.get<CarRating[]>(this.configService.get_all_Car_Ratings)
+    getAllCarRatings(carId: string): Observable<CarRating[]> {
+      return this.http.get<CarRating[]>(this.configService.carRatingsUrl, 
+        {headers: {carId}})
         .pipe(
-          catchError(this.errorHandl)
+          catchError(this.errorHandle)
         );
     }
 
-    errorHandl(error) {
+    manageComment(rating: CarRating){
+        return this.http.put(this.configService.carRatingsUrl, rating)
+            .pipe(
+              catchError(this.errorHandle)
+            );
+    }
+
+
+    reject(id: string){
+        
+    }
+    errorHandle(error) {
         let errorMessage = '';
         if (error.error instanceof ErrorEvent) {
           // Get client-side error

@@ -27,10 +27,27 @@ export class CommentListComponent implements OnInit {
   }
 
   getAllCarRatings() {
-    this.carRatingService.getAllCarRatings()
+    this.carRatingService.getAllCarRatings('0')
       .subscribe(data => {
         this.carRatings = data;
       });
   }
 
+  approve(rating: CarRating){
+    alert('aaas')
+    rating.ratingStatus = 'APPROVED';
+    this.carRatingService.manageComment(rating)
+      .subscribe( response => {
+        console.log(response);
+      });
+  }
+  
+  reject(rating: CarRating){
+    rating.ratingStatus = 'DENIED';
+    this.carRatingService.manageComment(rating)
+      .subscribe( response => {
+        console.log(response);
+      });
+  }
+  
 }

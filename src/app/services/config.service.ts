@@ -9,9 +9,8 @@ export class ConfigService {
   private _api_url = 'http://localhost:8081/rating';
 
 
-  get get_all_Car_Ratings(): string {
+  get carRatingsUrl(): string {
     return this._api_url;
   }
-
-
+  
 }

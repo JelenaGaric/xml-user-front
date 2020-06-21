@@ -11,22 +11,17 @@
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
-              <thead class=" text-primary">
+              <thead class=" text-danger">
               <th>
-                Id
+                User
               </th>
               <th>
-                Ime
+                Ad
               </th>
               <th>
-                Prezime
+                Comment
               </th>
-              <th>
-                E-mail
-              </th>
-              <th>
-                JBO
-              </th>
+
               <th class="text-right">
 
               </th>
@@ -34,22 +29,22 @@
               <tbody>
               <ng-container *ngFor="let rating of carRatings">
                 <tr>
-                <td>{{rating.userid}}</td>
+                <td>{{rating.id}}</td>
                 <td>{{rating.carId}}</td>
                 <td>{{rating.comment}}</td>
                 <td>{{rating.ratingStatus}}</td>
                 <td>
                   <div ngbDropdown class="col-md-10">
-                    <button class="btn btn-primary btn-block" id="dropdownBasic1" ngbDropdownToggle>Pacijent</button>
+                    <button class="btn btn-danger btn-block" id="dropdownBasic1" ngbDropdownToggle>Action</button>
                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                      <button ngbDropdownItem >Profil</button>
-                      <button ngbDropdownItem >Zdravstveni karton</button>
+                        <button ngbDropdownItem (click)="approve(rating)"> Approve </button>
+                        <button ngbDropdownItem (click)="reject(rating)"> Reject </button>
                     </div>
                   </div>
                 </td>
                 <td>
                   <div class="col-md-10">
-                    <button class="btn btn-primary btn-block" ngbDropdownItem  >Obriši...</button>
+                    <button class="btn btn-danger btn-block" ngbDropdownItem> View ad...</button>
                   </div>
                 </td>
                 </tr>
