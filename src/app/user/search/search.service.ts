@@ -16,11 +16,11 @@ const httpOptions = {
 
 @Injectable()
 export class SearchService{
-  //private _carSearchUrl = 'http://localhost:8080/search';
-  private _carBrandsUrl = 'http://localhost:8080/carBrands';
-  private _fuelTypesUrl = 'http://localhost:8080/fuelTypes';
+  //private _carSearchUrl = 'http://localhost:8081/search';
+  private _carBrandsUrl = 'http://localhost:8081/carBrands';
+  private _fuelTypesUrl = 'http://localhost:8081/fuelTypes';
   private _transmissionTypesUrl = 'http://localhost:8080/transmissionTypes';
-  private _carClassesUrl = 'http://localhost:8080/carClasses';
+  private _carClassesUrl = 'http://localhost:8081/carClasses';
 
   carClasses: any[] = [
     {
@@ -59,22 +59,22 @@ export class SearchService{
       catchError(this.handleError));
   }*/
 
-  getCarBrands() : Observable<CarBrand[]>{
+  getCarBrands(): Observable<CarBrand[]>{
     return this._http.get<CarBrand[]>(this._carBrandsUrl).pipe(
       catchError(this.handleError));
   }
 
-  getCarClasses() : Observable<CarClass[]>{
+  getCarClasses(): Observable<CarClass[]>{
     return this._http.get<CarClass[]>(this._carClassesUrl).pipe(
       catchError(this.handleError));
   }
 
-  getFuelTypes() : Observable<FuelType[]>{
+  getFuelTypes(): Observable<FuelType[]>{
     return this._http.get<FuelType[]>(this._fuelTypesUrl).pipe(
       catchError(this.handleError));
   }
 
-  getTransmissionTypes() : Observable<TransmissionType[]>{
+  getTransmissionTypes(): Observable<TransmissionType[]>{
     return this._http.get<TransmissionType[]>(this._transmissionTypesUrl).pipe(
       catchError(this.handleError));
   }

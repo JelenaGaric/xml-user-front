@@ -15,12 +15,18 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ToastrModule} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {CarService} from "./user/service/car.service";
+import { CarComponent } from './user/car/car.component';
+import { RatingsComponent } from './user/ratings/ratings.component';
+import { RatingModule } from 'ng-starrating';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserLayoutComponent
+    UserLayoutComponent,
+    CarComponent,
+    RatingsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +39,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgbModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RatingModule
   ],
-  providers: [],
+  providers: [CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
