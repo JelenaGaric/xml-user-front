@@ -19,6 +19,8 @@ import {CarService} from "./user/service/car.service";
 import { CarComponent } from './user/car/car.component';
 import { RatingsComponent } from './user/ratings/ratings.component';
 import { RatingModule } from 'ng-starrating';
+import { AddNewCarComponent } from './user/add-new-car/add-new-car.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -26,22 +28,24 @@ import { RatingModule } from 'ng-starrating';
     AppComponent,
     UserLayoutComponent,
     CarComponent,
-    RatingsComponent
+    RatingsComponent,
+    AddNewCarComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ComponentsModule,
-    RouterModule,
-    AppRoutingModule,
-    HttpClientModule,
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ComponentsModule,
+        RouterModule,
+        AppRoutingModule,
+        HttpClientModule,
 
-    NgbModule,
-    ToastrModule.forRoot(),
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    RatingModule
-  ],
+        NgbModule,
+        ToastrModule.forRoot(),
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        RatingModule,
+        MatFormFieldModule
+    ],
   providers: [CarService],
   bootstrap: [AppComponent]
 })
