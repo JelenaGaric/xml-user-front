@@ -8,18 +8,15 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/user/carlist', title: 'Car List',  icon: 'library_books', class: '' },
-    { path: '/user/search', title: 'Search',  icon: 'content_paste', class: '' },
-    { path: '/user/login', title: 'Login',  icon: 'person', class: '' },
-    { path: '/user/register', title: 'Register',  icon: 'bubble_chart', class: '' }
+    { path: '/admin/comments', title: 'Comment list',  icon: 'library_books', class: '' }
 ];
 
 @Component({
-  selector: 'app-sidebar-user',
+  selector: 'app-sidebar-admin',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarUserComponent implements OnInit {
+export class SidebarAdminComponent implements OnInit {
   menuItems: any[];
 
   constructor() { }

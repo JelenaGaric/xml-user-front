@@ -1,0 +1,64 @@
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Lista pacijenata</h4>
+
+
+
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+              <th>
+                Id
+              </th>
+              <th>
+                Ime
+              </th>
+              <th>
+                Prezime
+              </th>
+              <th>
+                E-mail
+              </th>
+              <th>
+                JBO
+              </th>
+              <th class="text-right">
+
+              </th>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let rating of carRatings">
+                <tr>
+                <td>{{rating.userid}}</td>
+                <td>{{rating.carId}}</td>
+                <td>{{rating.comment}}</td>
+                <td>{{rating.ratingStatus}}</td>
+                <td>
+                  <div ngbDropdown class="col-md-10">
+                    <button class="btn btn-primary btn-block" id="dropdownBasic1" ngbDropdownToggle>Pacijent</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                      <button ngbDropdownItem >Profil</button>
+                      <button ngbDropdownItem >Zdravstveni karton</button>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="col-md-10">
+                    <button class="btn btn-primary btn-block" ngbDropdownItem  >Obriši...</button>
+                  </div>
+                </td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
