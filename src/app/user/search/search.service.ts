@@ -1,11 +1,11 @@
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {Injectable} from "@angular/core";
-import {CarBrand} from "../../model/carBrand";
-import {catchError} from "rxjs/operators";
-import {FuelType} from "../../model/fuelType";
-import {CarClass} from "../../model/carClass";
-import {TransmissionType} from "../../model/transmissionType";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {CarBrand} from '../../model/carBrand';
+import {catchError} from 'rxjs/operators';
+import {FuelType} from '../../model/fuelType';
+import {CarClass} from '../../model/carClass';
+import {TransmissionType} from '../../model/transmissionType';
 
 const httpOptions = {
   headers: new HttpHeaders({

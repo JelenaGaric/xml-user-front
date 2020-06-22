@@ -16,7 +16,7 @@ export class AddNewCarService {
   constructor(private httpClient: HttpClient, private router: Router) {
   }
 
-  postNewCar(car: Car):Observable<Car> {
+  postNewCar(car: Car): Observable<Car> {
     return this.httpClient.post<Car>('http://localhost:8080/car-service/car', car);
   }
 

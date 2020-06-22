@@ -1,4 +1,5 @@
 export class Car {
+  id: string;
   carBrandId: string;
   carModelId: string;
   carClassId: string;
