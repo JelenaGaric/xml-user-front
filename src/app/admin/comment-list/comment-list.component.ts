@@ -34,7 +34,7 @@ export class CommentListComponent implements OnInit {
   }
 
   approve(rating: CarRating){
-    alert('aaas')
+    alert("You have approved the comment!")
     rating.ratingStatus = 'APPROVED';
     this.carRatingService.manageComment(rating)
       .subscribe( response => {
@@ -43,6 +43,7 @@ export class CommentListComponent implements OnInit {
   }
   
   reject(rating: CarRating){
+    alert("You have reject the comment!")
     rating.ratingStatus = 'DENIED';
     this.carRatingService.manageComment(rating)
       .subscribe( response => {
