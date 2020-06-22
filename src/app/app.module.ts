@@ -21,6 +21,8 @@ import { RatingsComponent } from './user/ratings/ratings.component';
 import { RatingModule } from 'ng-starrating';
 import { MessagesComponent } from './user/messages/messages.component';
 import {MessageService} from "./user/service/message.service";
+import { AddNewCarComponent } from './user/add-new-car/add-new-car.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import {MessageService} from "./user/service/message.service";
     CarComponent,
     RatingsComponent,
     MessagesComponent
+    RatingsComponent,
+    AddNewCarComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,8 @@ import {MessageService} from "./user/service/message.service";
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    RatingModule
+    RatingModule,
+    MatFormFieldModule
   ],
   providers: [CarService, MessageService],
   bootstrap: [AppComponent]

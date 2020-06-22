@@ -1,0 +1,41 @@
+<div class="panel-header panel-header-xsm"></div>
+
+<div class="main-content">
+  <div class="col-12 mx-5 px-5">
+    <div class="row">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="brand">Car Model</label>
+          <input type="number" class="form-control" id="brand" [ngModelOptions]="{standalone: true}" [(ngModel)]="car.carModelId"/>
+        </div>
+        <div class="form-group">
+          <label for="fuelType">Fuel Type</label>
+          <input type="number" class="form-control" id="fuelType" [ngModelOptions]="{standalone: true}" [(ngModel)]="car.fuelTypeId"/>
+        </div>
+        <div class="form-group">
+          <label for="transmission">Transmission Type</label>
+          <input type="number" class="form-control" id="transmission" [ngModelOptions]="{standalone: true}" [(ngModel)]="car.transmissionId"/>
+        </div>
+        <div class="form-group">
+          <label for="waiver">Waiver</label>
+          <input type="checkbox" class="form-control" id="waiver" [ngModelOptions]="{standalone: true}" [(ngModel)]="car.waiver"/>
+        </div>
+        <div class="form-group">
+          <label for="limitedKms">Limited KMs</label>
+          <input type="checkbox" class="form-control" id="limitedKms" [ngModelOptions]="{standalone: true}" [(ngModel)]="car.limitedKms"/>
+        </div>
+        <div class="form-group">
+          <label for="pricePerKm">Price per KM</label>
+          <input type="number" class="form-control" id="pricePerKm" [ngModelOptions]="{standalone: true}" [(ngModel)]="car.pricePerKm"/>
+        </div>
+        <div class="form-group">
+          <label for="pricePerDay">Price per Day</label>
+          <input type="number" class="form-control" id="pricePerDay" [ngModelOptions]="{standalone: true}" [(ngModel)]="car.pricePerDay"/>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
