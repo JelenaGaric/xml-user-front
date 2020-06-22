@@ -6,6 +6,7 @@ import { UserLayoutRoutes } from './user-layout.routing';
 
 import { CarListComponent } from '../car-list/car-list.component';
 import { SearchComponent } from '../search/search.component';
+import {RentRequestComponent} from '../rent-request/rent-request.component';
 
 import { ChartsModule } from 'ng2-charts';
 import { ToastrModule } from 'ngx-toastr';
@@ -33,7 +34,8 @@ import { RegistrationComponent } from 'src/app/registration/registration.compone
     CarListComponent,
     SearchComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    RentRequestComponent
   ],
   bootstrap: [
   ]
