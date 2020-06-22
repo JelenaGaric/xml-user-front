@@ -1,12 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {CarModel} from '../../model/carModel';
-import {CarClass} from '../../model/carClass';
-import {Car} from '../../model/car';
-import {TransmissionType} from '../../model/transmissionType';
-import {CarBrand} from '../../model/carBrand';
-import {Router} from '@angular/router';
-import {FuelType} from '../../model/fuelType';
+import {Component, OnInit} from '@angular/core';
 import {AddNewCarService} from './add-new-car.service';
+import {CarDTO} from './dtos/carDTO';
+import {CodebookDTO} from './dtos/codebookDTO';
+import {CarModelDTO} from './dtos/carModelDTO';
 
 @Component({
   selector: 'app-add-new-car',
@@ -14,21 +10,34 @@ import {AddNewCarService} from './add-new-car.service';
   styleUrls: ['./add-new-car.component.css']
 })
 export class AddNewCarComponent implements OnInit {
-
-  car: Car;
+  carDTO: CarDTO;
+  codebookDTO: CodebookDTO;
+  possibleModels: CarModelDTO[];
 
   constructor(private addNewCarService: AddNewCarService) {
-    this.car = new Car();
+    this.carDTO = new CarDTO();
+    this.codebookDTO = new CodebookDTO();
+    this.possibleModels = [];
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.addNewCarService.getCodebook().subscribe(codebookDTO => {
+      console.log(codebookDTO);
+      this.codebookDTO = codebookDTO;
+    }, error => {
+      console.log(error);
+    });
+  }
 
   onSubmit() {
-    console.log(this.car);
-    this.addNewCarService.postNewCar(this.car).subscribe(car => {
-      console.log('povratna vrednost');
+    this.addNewCarService.postNewCar(this.carDTO).subscribe(car => {
       console.log(car);
       alert('Successfully added a new car.');
-    })
+    });
+  }
+
+  onBrandSelect(brandId: string) {
+    // console.log("brandId: " + brandId);
+    this.possibleModels = this.codebookDTO.carModelDTOs.filter(carModel => carModel.brandId == brandId);
   }
 }
