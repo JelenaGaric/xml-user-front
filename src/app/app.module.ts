@@ -19,6 +19,8 @@ import {CarService} from "./user/service/car.service";
 import { CarComponent } from './user/car/car.component';
 import { RatingsComponent } from './user/ratings/ratings.component';
 import { RatingModule } from 'ng-starrating';
+import { MessagesComponent } from './user/messages/messages.component';
+import {MessageService} from "./user/service/message.service";
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { RatingModule } from 'ng-starrating';
     AppComponent,
     UserLayoutComponent,
     CarComponent,
-    RatingsComponent
+    RatingsComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { RatingModule } from 'ng-starrating';
     BrowserAnimationsModule,
     RatingModule
   ],
-  providers: [CarService],
+  providers: [CarService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

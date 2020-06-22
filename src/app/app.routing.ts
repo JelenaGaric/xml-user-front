@@ -16,10 +16,10 @@ const routes: Routes = [
       path: '',
       loadChildren: () => UserLayoutModule
     }]},
-  { path: '', redirectTo:'user', pathMatch: 'full' },
-  { path: '**', redirectTo:'user', pathMatch: 'full' }
-  //{ path: 'register', component: RegistrationComponent },
-  //{ path: 'login', component: LoginComponent }
+  { path: '', redirectTo: 'user', pathMatch: 'full' },
+  { path: '**', redirectTo: 'user', pathMatch: 'full' }
+  // { path: 'register', component: RegistrationComponent },
+  // { path: 'login', component: LoginComponent }
 
 ];
 

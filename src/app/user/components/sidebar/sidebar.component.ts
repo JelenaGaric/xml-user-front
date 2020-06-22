@@ -11,6 +11,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user/carlist', title: 'Car List',  icon: 'library_books', class: '' },
     { path: '/user/search', title: 'Search',  icon: 'content_paste', class: '' },
     { path: '/user/login', title: 'Login',  icon: 'person', class: '' },
+    { path: '/user/messages', title: 'Messages',  icon: 'message', class: '' },
     { path: '/user/register', title: 'Register',  icon: 'bubble_chart', class: '' }
 ];
 
