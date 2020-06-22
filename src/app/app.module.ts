@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { ComponentsModule } from './user/components/components.module';
+import { ComponentsUserModule } from './user/components/components.module';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 
@@ -23,6 +23,8 @@ import { MessagesComponent } from './user/messages/messages.component';
 import {MessageService} from "./user/service/message.service";
 import { AddNewCarComponent } from './user/add-new-car/add-new-car.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
+import { ComponentsAdminModule } from './admin/components/components.module';
 
 
 @NgModule({
@@ -31,14 +33,16 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     UserLayoutComponent,
     CarComponent,
     RatingsComponent,
-    MessagesComponent
+    MessagesComponent,
     RatingsComponent,
-    AddNewCarComponent
+    AddNewCarComponent,
+    AdminLayoutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ComponentsModule,
+    ComponentsUserModule,
+    ComponentsAdminModule,
     RouterModule,
     AppRoutingModule,
     HttpClientModule,

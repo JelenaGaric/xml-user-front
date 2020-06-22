@@ -6,6 +6,8 @@ import {UserLayoutComponent} from './user/user-layout/user-layout.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { UserLayoutModule } from './user/user-layout/user-layout.module';
+import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
+import { AdminLayoutModule } from './admin/admin-layout/admin-layout.module';
 
 const routes: Routes = [
   {
@@ -16,10 +18,18 @@ const routes: Routes = [
       path: '',
       loadChildren: () => UserLayoutModule
     }]},
-  { path: '', redirectTo: 'user', pathMatch: 'full' },
-  { path: '**', redirectTo: 'user', pathMatch: 'full' }
-  // { path: 'register', component: RegistrationComponent },
-  // { path: 'login', component: LoginComponent }
+    {
+      path: 'admin',
+      component: AdminLayoutComponent,
+      children: [
+        {
+          path: '',
+          loadChildren: () => AdminLayoutModule
+        }]},
+  { path: '', redirectTo:'user', pathMatch: 'full' },
+  { path: '**', redirectTo:'user', pathMatch: 'full' }
+  //{ path: 'register', component: RegistrationComponent },
+  //{ path: 'login', component: LoginComponent }
 
 ];
 

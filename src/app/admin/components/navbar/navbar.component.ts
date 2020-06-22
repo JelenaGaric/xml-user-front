@@ -3,13 +3,12 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-navbar-user',
+  selector: 'app-navbar-admin',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarUserComponent implements OnInit {
+export class NavbarAdminComponent implements OnInit {
   private listTitles: any[];
   location: Location;
   // tslint:disable-next-line:variable-name
