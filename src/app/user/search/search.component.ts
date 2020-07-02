@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbDropdownConfig} from "@ng-bootstrap/ng-bootstrap";
-import {SearchService} from "./search.service";
-import {CarBrand} from "../../model/carBrand";
-import {FuelType} from "../../model/fuelType";
-import {CarClass} from "../../model/carClass";
-import {TransmissionType} from "../../model/transmissionType";
+import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
+import {SearchService} from './search.service';
+import {CarBrand} from '../../model/carBrand';
+import {FuelType} from '../../model/fuelType';
+import {CarClass} from '../../model/carClass';
+import {TransmissionType} from '../../model/transmissionType';
 
 @Component({
   selector: 'app-search',
@@ -13,11 +13,11 @@ import {TransmissionType} from "../../model/transmissionType";
   providers: [SearchService]
 })
 export class SearchComponent implements OnInit {
-  carBrands : CarBrand[];
-  carClasses : CarClass[];
-  fuelTypes : FuelType[];
-  transmissionTypes : TransmissionType[];
-  errorMessage : string;
+  carBrands: CarBrand[];
+  carClasses: CarClass[];
+  fuelTypes: FuelType[];
+  transmissionTypes: TransmissionType[];
+  errorMessage: string;
 
   carModels: any[] = [
     {
@@ -50,7 +50,7 @@ export class SearchComponent implements OnInit {
   ];
 
 
-  constructor(private _searchService : SearchService, config: NgbDropdownConfig) {
+  constructor(private _searchService: SearchService, config: NgbDropdownConfig) {
     config.autoClose = 'outside';
   }
 
@@ -61,14 +61,14 @@ export class SearchComponent implements OnInit {
         this.carBrands = carBrands;
         console.log(this.carBrands);
       },
-      error => this.errorMessage = <any>error
+      error => this.errorMessage = (error as any)
     );
 
     this._searchService.getFuelTypes().subscribe(
       fuelTypes => {
         this.fuelTypes = fuelTypes;
       },
-      error => this.errorMessage = <any>error
+      error => this.errorMessage = (error as any)
     );
 
     this._searchService.getCarClasses().subscribe(
@@ -76,7 +76,7 @@ export class SearchComponent implements OnInit {
         this.carClasses = carClasses;
         console.log(this.carClasses);
       },
-      error => this.errorMessage = <any>error
+      error => this.errorMessage = (error as any)
     );
 
     this._searchService.getTransmissionTypes().subscribe(
@@ -84,7 +84,7 @@ export class SearchComponent implements OnInit {
         this.transmissionTypes = transmissionTypes;
         console.log(this.transmissionTypes);
       },
-      error => this.errorMessage = <any>error
+      error => this.errorMessage = (error as any)
     );
   }
 

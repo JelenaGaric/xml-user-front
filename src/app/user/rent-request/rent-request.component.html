@@ -1,0 +1,49 @@
+<div id="divForTable" class="animated slideInLeft">
+  <h1 class="card-title text-center"> </h1>
+  <div class="col-lg">
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <div class="align-items-center">
+            <div>
+              <div class="note col-lg-6 offset-3 text-center">
+                <h2>Rent Requests</h2>
+              </div>
+
+              <table id="table" class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
+                <tr>
+                  <th scope="col" style="text-align:center">Reserved From</th>
+                  <th scope="col" style="text-align:center">Reserved To</th>
+                  <th scope="col" style="text-align:center">Request Status</th>
+                  <th scope="col" style="text-align:center">Accept Request</th>
+                  <th scope="col" style="text-align:center">Reject Request</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor = "let req of requests">
+                  <td>{{req.startDate}}</td>
+                  <td>{{req.endDate}}</td>
+                  <td>{{req.status}}</td>
+                  <td align="center">
+                    <button class="btn btn-success"
+                            (click)="approveRentRequest(req.id)"
+                            >Accept</button>
+                  </td>
+                  <td align="center">
+                    <button class="btn btn-danger"
+                            (click)="cancelRentRequest(req.id)"> Reject </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+</div>

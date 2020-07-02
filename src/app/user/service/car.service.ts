@@ -3,8 +3,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {  catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import {Car} from "../../model/car";
-import {Rating} from "../../model/rating";
+import {Car} from '../../model/car';
+import {Rating} from '../../model/rating';
 
 @Injectable()
 export class CarService {

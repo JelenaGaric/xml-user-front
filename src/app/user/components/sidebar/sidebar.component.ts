@@ -13,7 +13,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user/addNewCar', title: 'Add New Car',  icon: 'add', class: '' },
     { path: '/user/login', title: 'Login',  icon: 'person', class: '' },
     { path: '/user/messages', title: 'Messages',  icon: 'message', class: '' },
-    { path: '/user/register', title: 'Register',  icon: 'bubble_chart', class: '' }
+    { path: '/user/register', title: 'Register',  icon: 'bubble_chart', class: '' },
+    { path: '/user/rentReq', title: 'Rent request', icon: 'notebook', class: ''}
 ];
 
 @Component({

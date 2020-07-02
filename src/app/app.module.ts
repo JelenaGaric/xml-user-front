@@ -15,12 +15,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ToastrModule} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {CarService} from "./user/service/car.service";
+import {CarService} from './user/service/car.service';
+import {RentRequestService} from './user/service/rent-request.service';
 import { CarComponent } from './user/car/car.component';
 import { RatingsComponent } from './user/ratings/ratings.component';
 import { RatingModule } from 'ng-starrating';
 import { MessagesComponent } from './user/messages/messages.component';
-import {MessageService} from "./user/service/message.service";
+import {MessageService} from './user/service/message.service';
 import { AddNewCarComponent } from './user/add-new-car/add-new-car.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
@@ -54,7 +55,7 @@ import { ComponentsAdminModule } from './admin/components/components.module';
     RatingModule,
     MatFormFieldModule
   ],
-  providers: [CarService, MessageService],
+  providers: [CarService, MessageService, RentRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
