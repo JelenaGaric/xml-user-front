@@ -47,6 +47,8 @@ export class RatingsComponent implements OnInit {
       return;
     }
     this.newRating.userId = '1';
+    this.newRating.username = 'You';
+
     this.newRating.carId = this.selectedId;
     this._carService.postRating(this.selectedId, this.newRating)
       .subscribe(data => {

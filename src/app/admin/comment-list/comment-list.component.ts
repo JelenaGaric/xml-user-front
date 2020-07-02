@@ -12,7 +12,7 @@ import { CarRatingService } from 'src/app/services/admin-service/car-rating.serv
   styleUrls: ['./comment-list.component.css']
 })
 export class CommentListComponent implements OnInit {
-  
+
   constructor(private carRatingService: CarRatingService,
     private router: Router, private modalService: NgbModal,
     private formBuilder: FormBuilder ) {
@@ -34,14 +34,13 @@ export class CommentListComponent implements OnInit {
   }
 
   approve(rating: CarRating){
-    alert('aaas')
     rating.ratingStatus = 'APPROVED';
     this.carRatingService.manageComment(rating)
       .subscribe( response => {
         console.log(response);
       });
   }
-  
+
   reject(rating: CarRating){
     rating.ratingStatus = 'DENIED';
     this.carRatingService.manageComment(rating)
@@ -49,5 +48,5 @@ export class CommentListComponent implements OnInit {
         console.log(response);
       });
   }
-  
+
 }

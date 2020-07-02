@@ -11,7 +11,7 @@
             <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">User id</th>
+              <th scope="col">User</th>
               <th scope="col">Comment</th>
               <th scope="col">Rating</th>
             </tr>
@@ -19,7 +19,7 @@
             <tbody>
             <tr *ngFor = 'let rating of ratingList'>
               <th scope="row"></th>
-              <td>{{rating.userId}}</td>
+              <td>{{rating.username}}</td>
               <td>{{rating.comment}}</td>
               <td>{{rating.rating}}</td>
             </tr>

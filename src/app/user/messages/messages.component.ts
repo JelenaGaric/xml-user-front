@@ -44,6 +44,8 @@ export class MessagesComponent implements OnInit {
       .subscribe( data => {
           data.flag = 'Sent';
           this.messageList.push(data);
+      }, error => {
+        alert('You haven\'t got any rent requests with that user, so you can\'t share messages with each other.');
       });
   }
 
