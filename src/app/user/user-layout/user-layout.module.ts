@@ -16,6 +16,8 @@ import { DropdownListModule } from 'ngx-dropdown-list';
 import { ComponentsUserModule } from '../components/components.module';
 import { LoginComponent } from 'src/app/login/login.component';
 import { RegistrationComponent } from 'src/app/registration/registration.component';
+import {AdminLayoutComponent} from "../../admin/admin-layout/admin-layout.component";
+import {AdComponent} from "../ad/ad.component";
 
 @NgModule({
   imports: [
@@ -34,7 +36,8 @@ import { RegistrationComponent } from 'src/app/registration/registration.compone
     SearchComponent,
     LoginComponent,
     RegistrationComponent,
-    RentRequestComponent
+    RentRequestComponent,
+    AdComponent
   ],
   bootstrap: [
   ]

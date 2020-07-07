@@ -5,6 +5,7 @@ export class Car {
   carClassId: string;
   fuelTypeId: string;
   transmissionId: string;
+  locationId: string;
   waiver: boolean;
   limitedKms: boolean;
   pricePerKm: number;
