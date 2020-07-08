@@ -1,86 +1,108 @@
 
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
+<div class="main-content">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
 
-          <form>
-            <div class="form-group row">
-              <label for="carBrand" class="col-sm-2 col-form-label">Car brand</label>
-              <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="carBrand" [value]=car.carBrandId>
+            <form>
+              <div class="form-group row">
+                <label for="carBrand" class="col-sm-2 col-form-label">Car brand</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="carBrand" [value]=car.carBrandId>
+                </div>
               </div>
-            </div>
 
-            <div class="form-group row">
-              <label for="carModel" class="col-sm-2 col-form-label">Car model</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control-plaintext" id="carModel" readonly  [value]=car.carModelId>
+              <div class="form-group row">
+                <label for="carModel" class="col-sm-2 col-form-label">Car model</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control-plaintext" id="carModel" readonly  [value]=car.carModelId>
+                </div>
               </div>
-            </div>
 
-            <div class="form-group row">
-              <label for="carBrand" class="col-sm-2 col-form-label">Car class</label>
-              <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="carClass" [value]=car.carClassId>
+              <div class="form-group row">
+                <label for="carBrand" class="col-sm-2 col-form-label">Car class</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="carClass" [value]=car.carClassId>
+                </div>
               </div>
-            </div>
 
-            <div class="form-group row">
-              <label for="fuelType" class="col-sm-2 col-form-label">Fuel type</label>
-              <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="fuelType" [value]=car.fuelTypeId>
+              <div class="form-group row">
+                <label for="fuelType" class="col-sm-2 col-form-label">Fuel type</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="fuelType" [value]=car.fuelTypeId>
+                </div>
               </div>
-            </div>
 
-            <div class="form-group row">
-              <label for="transmission" class="col-sm-2 col-form-label">Transmission type</label>
-              <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="transmission" [value]=car.transmissionId>
+              <div class="form-group row">
+                <label for="transmission" class="col-sm-2 col-form-label">Transmission type</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="transmission" [value]=car.transmissionId>
+                </div>
               </div>
-            </div>
 
-            <div class="form-group row">
-              <label for="wavier" class="col-sm-2 col-form-label">Wavier</label>
-              <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="wavier" [value]=car.waiver>
+              <div class="form-group row">
+                <label for="wavier" class="col-sm-2 col-form-label">Wavier</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="wavier" [value]=car.waiver>
+                </div>
               </div>
-            </div>
 
-            <div class="form-group row">
-              <label for="limitedKms" class="col-sm-2 col-form-label">Limited kms</label>
-              <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="limitedKms" [value]=car.limitedKms>
+              <div class="form-group row">
+                <label for="limitedKms" class="col-sm-2 col-form-label">Limited kms</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="limitedKms" [value]=car.limitedKms>
+                </div>
               </div>
-            </div>
 
-            <div class="form-group row">
-              <label for="kmPrice" class="col-sm-2 col-form-label">Price per km</label>
-              <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="kmPrice" [value]=car.pricePerKm>
+              <div class="form-group row">
+                <label for="kmPrice" class="col-sm-2 col-form-label">Price per km</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="kmPrice" [value]=car.pricePerKm>
+                </div>
               </div>
-            </div>
 
-
-            <div class="form-group row">
-              <label for="dayPrice" class="col-sm-2 col-form-label">Price per day</label>
-              <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="dayPrice" [value]=car.pricePerDay>
+              <div class="form-group row">
+                <label for="dayPrice" class="col-sm-2 col-form-label">Price per day</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="dayPrice" [value]=car.pricePerDay>
+                </div>
               </div>
-            </div>
 
-
-            <div class="form-group row">
-              <label for="kmage" class="col-sm-2 col-form-label">Kms passed</label>
-              <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="kmage" [value]=car.kmage>
+              <div class="form-group row">
+                <label for="kmage" class="col-sm-2 col-form-label">Kms passed</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="kmage" [value]=car.kmage>
+                </div>
               </div>
-            </div>
 
-            <button class="btn btn-primary"  (click)="openRatings()">Comments and ratings</button>
-          </form>
+              <button class="btn btn-primary"  (click)="openRatings()">Comments and ratings</button>
+            </form>
 
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="card p-4">
+            <h3 class="card-title"><b>Rent this car</b></h3>
+            <form>
+              <div class="form-group">
+                <label for="startDate">Start Date:</label>
+                <input class="form-control" type="date" id="startDate"
+                       [ngModelOptions]="{standalone: true}" [(ngModel)]="startDate">
+              </div>
+              <div class="form-group">
+                <label for="endDate">End Date:</label>
+                <input class="form-control" type="date" id="endDate"
+                       [ngModelOptions]="{standalone: true}" [(ngModel)]="endDate">
+              </div>
+              <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>

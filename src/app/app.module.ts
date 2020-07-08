@@ -26,6 +26,7 @@ import { AddNewCarComponent } from './user/add-new-car/add-new-car.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
 import { ComponentsAdminModule } from './admin/components/components.module';
+import { CartComponent } from './user/cart/cart.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ComponentsAdminModule } from './admin/components/components.module';
     MessagesComponent,
     RatingsComponent,
     AddNewCarComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

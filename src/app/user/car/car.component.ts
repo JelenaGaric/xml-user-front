@@ -12,6 +12,8 @@ export class CarComponent implements OnInit {
 
   car: Car = new Car();
   selectedId: string;
+  startDate: Date;
+  endDate: Date;
 
   constructor(private _carService: CarService, private router: Router,  private route: ActivatedRoute) { }
 
@@ -25,6 +27,32 @@ export class CarComponent implements OnInit {
     });
   }
   openRatings(){
-    this.router.navigate(['ratings'], { relativeTo: this.route });  }
+    this.router.navigate(['ratings'], { relativeTo: this.route })
+  }
 
+  addToCart() {
+    if (!this.startDate || !this.endDate) {
+      alert('You must select the start and end dates.');
+      return;
+    }
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    if (!cart)
+      cart = [];
+    else
+      for (const request of cart)
+        if (request.carId == this.selectedId) {
+          alert('You have already requested this car.');
+          return;
+        }
+
+    cart.push({
+      carId: this.selectedId,
+      startDate: this.startDate,
+      endDate: this.endDate,
+      clientId: '1'
+    });
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    this.router.navigate(['/user/carlist']).then(() => console.log("Added to cart."));
+  }
 }
