@@ -33,6 +33,12 @@ export class CarService {
       catchError(this.handleError));
   }
 
+  getImage(carId: string): Observable<File>{
+    // @ts-ignore
+    return this._http.get<File>(this._carUrl + '/image/' + carId,  { responseType: 'blob' }).pipe(
+      catchError(this.handleError));
+  }
+
   postRating(carId: string, rating:Rating): Observable<Rating> {
     return this._http.post<Rating>(this._ratingUrl, rating, {headers: {carId}}).pipe(
       catchError(this.handleError));

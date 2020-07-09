@@ -1,5 +1,7 @@
 export class SearchRequest {
   locationId: string;
+  startDate: Date;
+  endDate: Date;
   carModelId: string;
   carClassId: string;
   waiver: boolean;

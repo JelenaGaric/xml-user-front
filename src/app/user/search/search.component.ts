@@ -6,7 +6,6 @@ import {FuelType} from '../../model/fuelType';
 import {CarClass} from '../../model/carClass';
 import {TransmissionType} from '../../model/transmissionType';
 import {CarModel} from '../../model/carModel';
-import {FormControl, FormGroup} from '@angular/forms';
 import {SearchRequest} from '../../model/searchRequest';
 import {Car} from '../../model/car';
 
@@ -34,6 +33,13 @@ export class SearchComponent implements OnInit {
 
   searchRequest: SearchRequest = new SearchRequest();
   cars: Car[];
+
+  priceOrder = true;
+  rateOrder = true;
+  kmsOrder = true;
+
+  startDate: Date;
+  endDate: Date;
 
   constructor(private _searchService: SearchService, config: NgbDropdownConfig) {
     config.autoClose = 'outside';
@@ -106,18 +112,53 @@ export class SearchComponent implements OnInit {
     this.searchRequest.transmissionId = id;
   }
 
+  sortByPrice(){
+    this.priceOrder = !this.priceOrder;
+    if (this.priceOrder) {
+      this.cars.sort((a, b) => (a.pricePerDay > b.pricePerDay) ? 1 : -1);
+    }
+    else {
+      this.cars.sort((a, b) => (a.pricePerDay < b.pricePerDay) ? 1 : -1);
+    }
+  }
+
+  sortByRate(){
+    this.rateOrder = !this.rateOrder;
+    if (this.rateOrder) {
+      this.cars.sort((a, b) => (a.rating > b.rating) ? 1 : -1);
+    }
+    else {
+      this.cars.sort((a, b) => (a.rating < b.rating) ? 1 : -1);
+    }
+  }
+
+  sortByKms(){
+    this.kmsOrder = !this.kmsOrder;
+    if (this.kmsOrder) {
+      this.cars.sort((a, b) => (a.kmage > b.kmage) ? 1 : -1);
+    }
+    else {
+      this.cars.sort((a, b) => (a.kmage < b.kmage) ? 1 : -1);
+    }
+  }
+
   search(){
     this.searchRequest.availableChildSeats = this.childSeats;
     this.searchRequest.waiver = this.waiverChecked;
     this.searchRequest.limitedKms = this.limitedKmsChecked;
     this.searchRequest.kmage = this.kmage;
-
+    this.searchRequest.startDate = this.startDate;
+    this.searchRequest.endDate = this.endDate;
+    console.log(this.startDate);
     this._searchService.sendSearchRequest(this.searchRequest).subscribe(
       cars => {
        this.cars = cars;
        console.log(cars);
       },
-      error => this.errorMessage = (error as any)
+      error => {
+        this.errorMessage = (error as any);
+        alert('Error. Try setting start date in 2 days.');
+      }
     );
   }
 }

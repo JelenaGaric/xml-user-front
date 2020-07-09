@@ -6,6 +6,22 @@
           <div class="card-header card-header-danger">
             <h4 class="card-title">Search</h4>
 
+            <!--  *****************************************START DATE********************************************** -->
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-white" id="start-date-dropdown" ngbDropdownToggle>Start date</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <input type="date" ngbDropdownItem [(ngModel)]="startDate">
+              </div>
+            </div>
+
+            <!--  *****************************************END DATE********************************************** -->
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-white" id="end-date-dropdown" ngbDropdownToggle>End date</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <input type="date" ngbDropdownItem [(ngModel)]="endDate">
+              </div>
+            </div>
+
             <div ngbDropdown class="d-inline-block">
               <button class="btn btn-white" id="location-dropdown" ngbDropdownToggle>Location</button>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
@@ -129,7 +145,10 @@
           <div class="card-body">
             <form>
               <button mat-raised-button type="submit" (click)="search()" class="btn btn-danger pull-right">Search</button>
-
+              <button style="float: right" class="btn btn-danger" (click)="sortByPrice()">Price</button>
+              <button style="float: right" class="btn btn-danger" (click)="sortByRate()">Rate</button>
+              <button style="float: right" class="btn btn-danger" (click)="sortByKms()">Kms</button>
+              <span style="float: right" class="btn btn-toolbar">Sort by:</span>
               <div class="row">
                 <div class="col-md-12">
 

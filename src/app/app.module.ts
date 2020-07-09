@@ -19,14 +19,14 @@ import {CarService} from './user/service/car.service';
 import {RentRequestService} from './user/service/rent-request.service';
 import { CarComponent } from './user/car/car.component';
 import { RatingsComponent } from './user/ratings/ratings.component';
-import { RatingModule } from 'ng-starrating';
 import { MessagesComponent } from './user/messages/messages.component';
 import {MessageService} from './user/service/message.service';
 import { AddNewCarComponent } from './user/add-new-car/add-new-car.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
 import { ComponentsAdminModule } from './admin/components/components.module';
-
+import {SafeHtml} from "./pipes/safeHtml.pipe";
+import {SafeHtmlPipeModule} from "./pipes/safeHtmlPipe.module";
 
 @NgModule({
   declarations: [
@@ -47,13 +47,12 @@ import { ComponentsAdminModule } from './admin/components/components.module';
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
-
     NgbModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    RatingModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    SafeHtmlPipeModule
   ],
   providers: [CarService, MessageService, RentRequestService],
   bootstrap: [AppComponent]

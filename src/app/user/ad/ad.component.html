@@ -1,17 +1,23 @@
 <div class="owl-item active" style="width: 407px; margin-right: 0px;"><div class="featured-item">
   <div class="featured-title">
-    <h3><a href="#">{{car.carBrandId}}</a></h3>
-    <h4><a href="#">{{car.carModelId}}</a></h4>
+    <h3><a href="#">{{car.carBrandId}} <span style="float: right; color: gold">Rating: {{car.rating | number:'1.1-1'}}</span></a>
+
+    </h3>
+    <h4><a href="#">{{car.carModelId}} <span style="float: right; color: silver">Class: {{car.carClassId}}</span></a></h4>
   </div>
   <div class="featured-image">
-    <a><img src="assets/img/default-add.jpg" alt="" class="img-responsive" (click)="openAd()"></a>
+    <a><img [src]="imageUrl | safeHtml"
+            onerror="src='assets/img/default-add.jpg'" alt="" class="img-responsive" (click)="openAd()"></a>
   </div>
 
   <div class="product-meta">
     <div class="item-info">
       <p>Price per day: ${{car.pricePerDay}}</p>
+      <p style="float: right; color: silver">Kms passed: {{car.kmage}}</p>
     </div>
+
     <span>Pickup location: {{car.locationId}}</span>
+
   </div>
 </div>
 </div>
