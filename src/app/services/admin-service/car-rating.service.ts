@@ -20,19 +20,20 @@ export class CarRatingService {
 
     getAllCarRatings(carId: string): Observable<CarRating[]> {
 
-      /*const headers = new HttpHeaders()
-      .set('header1', "header1")
-      .set('header2', "header2");*/
-      this.httpOptions.headers.append('Content-Type', carId);
-      return this.http.get<CarRating[]>(this.configService.carRatingsUrl, this.httpOptions
-        /*{headers:{carId}}*/)
+      const headers = new HttpHeaders()
+      .set('carId', carId);
+
+      return this.http.get<CarRating[]>(this.configService.carRatingsUrl, {headers:headers})
         .pipe(
           catchError(this.errorHandle)
         );
     }
 
     manageComment(rating: CarRating){
-        return this.http.put(this.configService.carRatingsUrl, rating)
+      const loggedInUser = JSON.parse(localStorage.getItem('loggedIn'))
+      const headers = new HttpHeaders()
+      .set('Authorization', loggedInUser.id);
+        return this.http.put(this.configService.carRatingsUrl, rating, {headers:headers})
             .pipe(
               catchError(this.errorHandle)
             );

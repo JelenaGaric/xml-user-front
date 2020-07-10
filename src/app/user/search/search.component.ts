@@ -149,7 +149,7 @@ export class SearchComponent implements OnInit {
     this.searchRequest.kmage = this.kmage;
     this.searchRequest.startDate = this.startDate;
     this.searchRequest.endDate = this.endDate;
-    console.log(this.startDate);
+    console.log(this.searchRequest)
     this._searchService.sendSearchRequest(this.searchRequest).subscribe(
       cars => {
        this.cars = cars;
