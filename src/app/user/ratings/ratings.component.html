@@ -5,7 +5,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h2>Current rating: {{rate}}</h2>
+          <h2>Current rating: {{rate | number:'1.1-1'}}</h2>
 
           <table class="table">
             <thead>
@@ -29,7 +29,7 @@
             <label for="comment">Comment:</label>
             <textarea class="form-control" rows="5" id="comment" (keyup)="onKey($event)"></textarea>
             <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="10"  (change)="onKeyNum($event)">
-            <button class="btn btn-primary" (click)="postRating()">Send</button>
+            <button class="btn btn-primary btn-block" (click)="postRating()">Send</button>
           </div>
         </div>
       </div>

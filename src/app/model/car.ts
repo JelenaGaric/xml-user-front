@@ -11,5 +11,6 @@ export class Car {
   pricePerKm: number;
   pricePerDay: number;
   kmage: number;
-  rating: number
+  rating: number;
+  ownerId: string;
 }
