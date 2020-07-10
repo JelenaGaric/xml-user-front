@@ -14,8 +14,8 @@ import { CarRatingService } from 'src/app/services/admin-service/car-rating.serv
 export class CommentListComponent implements OnInit {
 
   constructor(private carRatingService: CarRatingService,
-    private router: Router, private modalService: NgbModal,
-    private formBuilder: FormBuilder ) {
+              private router: Router, private modalService: NgbModal,
+              private formBuilder: FormBuilder ) {
 
   }
 
