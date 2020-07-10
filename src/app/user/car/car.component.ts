@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CarService} from "../service/car.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Car} from "../../model/car";
+import {CarService} from '../service/car.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Car} from '../../model/car';
 
 @Component({
   selector: 'app-car-component',
@@ -11,9 +11,12 @@ import {Car} from "../../model/car";
 export class CarComponent implements OnInit {
 
   car: Car = new Car();
+
   selectedId: string;
   startDate: Date;
   endDate: Date;
+
+  imageUrl: string;
 
   constructor(private _carService: CarService, private router: Router,  private route: ActivatedRoute) { }
 
@@ -23,6 +26,13 @@ export class CarComponent implements OnInit {
       this._carService.getCar(this.selectedId)
         .subscribe( car => {
           this.car = car;
+          this._carService.getImage(this.car.id)
+            .subscribe(image => {
+              if (image != null){
+                this.imageUrl = URL.createObjectURL(image);
+                console.log(this.imageUrl);
+              }
+            });
         });
     });
   }

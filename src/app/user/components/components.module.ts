@@ -7,6 +7,7 @@ import { SidebarUserComponent } from './sidebar/sidebar.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NavbarUserComponent} from './navbar/navbar.component';
+import {SafeHtml} from "../../pipes/safeHtml.pipe";
 
 @NgModule({
   imports: [

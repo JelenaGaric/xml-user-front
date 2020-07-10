@@ -16,6 +16,12 @@ import { DropdownListModule } from 'ngx-dropdown-list';
 import { ComponentsUserModule } from '../components/components.module';
 import { LoginComponent } from 'src/app/login/login.component';
 import { RegistrationComponent } from 'src/app/registration/registration.component';
+import {AdComponent} from '../ad/ad.component';
+import {RatingModule} from 'ng-starrating';
+import {SafeHtml} from "../../pipes/safeHtml.pipe";
+import {SafeHtmlPipeModule} from "../../pipes/safeHtmlPipe.module";
+import {YesNoPipe} from "../../pipes/yes-no.pipe";
+
 
 @NgModule({
   imports: [
@@ -27,14 +33,18 @@ import { RegistrationComponent } from 'src/app/registration/registration.compone
     NgbModule,
     ComponentsUserModule,
     ReactiveFormsModule,
-    DropdownListModule
+    DropdownListModule,
+    RatingModule,
+    SafeHtmlPipeModule
   ],
   declarations: [
     CarListComponent,
     SearchComponent,
     LoginComponent,
     RegistrationComponent,
-    RentRequestComponent
+    RentRequestComponent,
+    AdComponent,
+    YesNoPipe
   ],
   bootstrap: [
   ]
