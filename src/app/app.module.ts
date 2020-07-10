@@ -27,6 +27,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
 import { ComponentsAdminModule } from './admin/components/components.module';
 import { CartComponent } from './user/cart/cart.component';
+import { LoginRegService } from './services/login-reg-service/login-reg.service';
 
 
 @NgModule({
@@ -57,7 +58,7 @@ import { CartComponent } from './user/cart/cart.component';
     RatingModule,
     MatFormFieldModule
   ],
-  providers: [CarService, MessageService, RentRequestService],
+  providers: [CarService, MessageService, RentRequestService, LoginRegService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
