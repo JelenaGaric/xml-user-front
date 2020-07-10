@@ -19,8 +19,13 @@ export class CarRatingService {
     };
 
     getAllCarRatings(carId: string): Observable<CarRating[]> {
-      return this.http.get<CarRating[]>(this.configService.carRatingsUrl, 
-        {headers: {carId}})
+
+      /*const headers = new HttpHeaders()
+      .set('header1', "header1")
+      .set('header2', "header2");*/
+      this.httpOptions.headers.append('Content-Type', carId);
+      return this.http.get<CarRating[]>(this.configService.carRatingsUrl, this.httpOptions
+        /*{headers:{carId}}*/)
         .pipe(
           catchError(this.errorHandle)
         );
