@@ -5,9 +5,11 @@ export class CarDTO {
   fuelTypeId: string;
   transmissionId: string;
   pricePerDay: number;
-  pricePerKm: number;
+  limitedKms: boolean;
   limitKmsPerDay: number;
+  pricePerKm: number;
   kmage: number;
   availableChildSeats: number;
   waiver: boolean;
+  waiverPricePerDay: number;
 }

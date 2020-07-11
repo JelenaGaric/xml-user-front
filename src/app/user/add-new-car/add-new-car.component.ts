@@ -4,6 +4,8 @@ import {CarDTO} from './dtos/carDTO';
 import {CodebookDTO} from './dtos/codebookDTO';
 import {CarModelDTO} from './dtos/carModelDTO';
 import {Router} from "@angular/router";
+import {CodebookDTOh} from './dtos/codebookDTOh';
+import {CarModelDTOh} from './dtos/carModelDTOh';
 
 @Component({
   selector: 'app-add-new-car',
@@ -12,15 +14,8 @@ import {Router} from "@angular/router";
 })
 export class AddNewCarComponent implements OnInit {
   carDTO: CarDTO;
-  codebookDTO: CodebookDTO;
-  possibleModels: CarModelDTO[];
-  loggedInUser: any;
-
-  constructor(private addNewCarService: AddNewCarService, private router: Router) {
-    this.carDTO = new CarDTO();
-    this.codebookDTO = new CodebookDTO();
+    this.codebookDTOh = new CodebookDTOh();
     this.possibleModels = [];
-  }
 
   ngOnInit() {
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedIn'));
@@ -30,7 +25,7 @@ export class AddNewCarComponent implements OnInit {
     }
     this.addNewCarService.getCodebook().subscribe(codebookDTO => {
       console.log(codebookDTO);
-      this.codebookDTO = codebookDTO;
+      this.codebookDTOh = codebookDTO;
     }, error => {
       console.log(error);
     });
@@ -45,6 +40,6 @@ export class AddNewCarComponent implements OnInit {
 
   onBrandSelect(brandId: string) {
     // console.log("brandId: " + brandId);
-    this.possibleModels = this.codebookDTO.carModelDTOs.filter(carModel => carModel.brandId == brandId);
+    this.possibleModels = this.codebookDTOh.carModelDTOhs.filter(carModel => carModel.brandId == brandId);
   }
 }

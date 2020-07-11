@@ -23,51 +23,58 @@
             </select>
           </div>
 
-          <div class="form-group">
-            <label for="fuel">Fuel Type</label>
-            <select class="form-control" id="fuel" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.fuelTypeId">
-              <option selected disabled>Select</option>
-              <option *ngFor="let fuelType of codebookDTO.fuelTypeDTOs" [value]="fuelType.id">
-                {{fuelType.name}}
-              </option>
-            </select>
-          </div>
+        <div class="form-group">
+          <label for="fuel">Fuel Type</label>
+          <select class="form-control" id="fuel" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.fuelTypeId">
+            <option selected disabled>Select</option>
+            <option *ngFor="let fuelType of codebookDTOh.fuelTypeDTOhs" [value]="fuelType.id">
+              {{fuelType.name}}
+            </option>
+          </select>
+        </div>
 
-          <div class="form-group">
-            <label for="transmission">Transmission</label>
-            <select class="form-control" id="transmission" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.transmissionId">
-              <option selected disabled>Select</option>
-              <option *ngFor="let transmission of codebookDTO.transmissionDTOs" [value]="transmission.id">
-                {{transmission.name}}
-              </option>
-            </select>
-          </div>
+        <div class="form-group">
+          <label for="transmission">Transmission</label>
+          <select class="form-control" id="transmission" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.transmissionId">
+            <option selected disabled>Select</option>
+            <option *ngFor="let transmission of codebookDTOh.transmissionDTOhs" [value]="transmission.id">
+              {{transmission.name}}
+            </option>
+          </select>
+        </div>
 
-          <div class="form-group">
-            <label for="waiver">Waiver</label>
-            <input type="checkbox" class="form-control" id="waiver" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.waiver"/>
-          </div>
-
-          <div class="form-group">
-            <label for="pricePerKm">Price per KM</label>
-            <input type="number" class="form-control" id="pricePerKm" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.pricePerKm"/>
-          </div>
-          <div class="form-group">
-            <label for="pricePerDay">Price per Day</label>
-            <input type="number" class="form-control" id="pricePerDay" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.pricePerDay"/>
-          </div>
-          <div class="form-group">
-            <label for="kmsPerDay">KMs per Day</label>
-            <input type="number" class="form-control" id="kmsPerDay" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.limitKmsPerDay"/>
-          </div>
-          <div class="form-group">
-            <label for="kmage">Mileage (KM)</label>
-            <input type="number" class="form-control" id="kmage" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.kmage"/>
-          </div>
-          <div class="form-group">
-            <label for="childSeats">Available Child Seats</label>
-            <input type="number" class="form-control" id="childSeats" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.availableChildSeats"/>
-          </div>
+        <div class="form-group">
+          <label for="waiver">Waiver</label>
+          <input type="checkbox" class="form-control" id="waiver" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.waiver"/>
+        </div>
+        <div *ngIf="carDTO.waiver" class="form-group">
+          <label for="priceWaiverPerDay">Price of Waiver per Day</label>
+          <input type="number" step="any" class="form-control" id="priceWaiverPerDay" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.waiverPricePerDay"/>
+        </div>
+        <div class="form-group">
+          <label for="limitedKms">Limited KMs</label>
+          <input type="checkbox" class="form-control" id="limitedKms" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.limitedKms"/>
+        </div>
+        <div *ngIf="carDTO.limitedKms" class="form-group">
+          <label for="kmsPerDay">KMs per Day</label>
+          <input type="number" step="any" class="form-control" id="kmsPerDay" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.limitKmsPerDay"/>
+        </div>
+        <div *ngIf="carDTO.limitedKms" class="form-group">
+          <label for="pricePerKm">Price per KM</label>
+          <input type="number" step="any" class="form-control" id="pricePerKm" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.pricePerKm"/>
+        </div>
+        <div class="form-group">
+          <label for="pricePerDay">Price per Day</label>
+          <input type="number" step="any" class="form-control" id="pricePerDay" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.pricePerDay"/>
+        </div>
+        <div class="form-group">
+          <label for="kmage">Mileage (KM)</label>
+          <input type="number" step="any" class="form-control" id="kmage" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.kmage"/>
+        </div>
+        <div class="form-group">
+          <label for="childSeats">Available Child Seats</label>
+          <input type="number" class="form-control" id="childSeats" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.availableChildSeats"/>
+        </div>
 
           <div class="form-group">
             <button type="submit" class="btn btn-success">Submit</button>

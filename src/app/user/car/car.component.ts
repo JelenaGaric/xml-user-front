@@ -17,6 +17,8 @@ export class CarComponent implements OnInit {
   selectedId: string;
   startDate: Date;
   endDate: Date;
+  waiver: boolean = false;
+
   startBlockDate: Date;
   endBlockDate: Date;
   canBlockCar: boolean;
@@ -69,6 +71,7 @@ export class CarComponent implements OnInit {
       carId: this.selectedId,
       startDate: this.startDate,
       endDate: this.endDate,
+      waiver: this.waiver,
       clientId: this.loggedInUser.id
     });
 
