@@ -1,77 +1,86 @@
 <div class="main-content">
   <div class="col-12 mx-5 px-5">
     <div class="row">
-      <form (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="brand">Car Brand</label>
-          <select class="form-control" id="brand" (change)="onBrandSelect($event.target['value'])">
-            <option selected disabled>Select</option>
-            <option *ngFor="let carBrand of codebookDTO.carBrandDTOs" [value]="carBrand.id">
-              {{carBrand.name}}
-            </option>
-          </select>
-        </div>
+        <div class="myDiv">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="brand">Car Brand</label>
+            <select class="form-control" id="brand" (change)="onBrandSelect($event.target['value'])">
+              <option selected disabled>Select</option>
+              <option *ngFor="let carBrand of codebookDTO.carBrandDTOs" [value]="carBrand.id">
+                {{carBrand.name}}
+              </option>
+            </select>
+          </div>
 
-        <div class="form-group">
-          <label for="model">Car Model</label>
-          <select class="form-control" id="model" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.carModelId">
-            <option selected disabled>Select</option>
-            <option *ngFor="let carModel of possibleModels" [value]="carModel.id">
-              {{carModel.name}}
-            </option>
-          </select>
-        </div>
+          <div class="form-group">
+            <label for="model">Car Model</label>
+            <select class="form-control" id="model" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.carModelId">
+              <option selected disabled>Select</option>
+              <option *ngFor="let carModel of possibleModels" [value]="carModel.id">
+                {{carModel.name}}
+              </option>
+            </select>
+          </div>
 
-        <div class="form-group">
-          <label for="fuel">Fuel Type</label>
-          <select class="form-control" id="fuel" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.fuelTypeId">
-            <option selected disabled>Select</option>
-            <option *ngFor="let fuelType of codebookDTO.fuelTypeDTOs" [value]="fuelType.id">
-              {{fuelType.name}}
-            </option>
-          </select>
-        </div>
+          <div class="form-group">
+            <label for="fuel">Fuel Type</label>
+            <select class="form-control" id="fuel" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.fuelTypeId">
+              <option selected disabled>Select</option>
+              <option *ngFor="let fuelType of codebookDTO.fuelTypeDTOs" [value]="fuelType.id">
+                {{fuelType.name}}
+              </option>
+            </select>
+          </div>
 
-        <div class="form-group">
-          <label for="transmission">Transmission</label>
-          <select class="form-control" id="transmission" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.transmissionId">
-            <option selected disabled>Select</option>
-            <option *ngFor="let transmission of codebookDTO.transmissionDTOs" [value]="transmission.id">
-              {{transmission.name}}
-            </option>
-          </select>
-        </div>
+          <div class="form-group">
+            <label for="transmission">Transmission</label>
+            <select class="form-control" id="transmission" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.transmissionId">
+              <option selected disabled>Select</option>
+              <option *ngFor="let transmission of codebookDTO.transmissionDTOs" [value]="transmission.id">
+                {{transmission.name}}
+              </option>
+            </select>
+          </div>
 
-        <div class="form-group">
-          <label for="waiver">Waiver</label>
-          <input type="checkbox" class="form-control" id="waiver" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.waiver"/>
-        </div>
+          <div class="form-group">
+            <label for="waiver">Waiver</label>
+            <input type="checkbox" class="form-control" id="waiver" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.waiver"/>
+          </div>
 
-        <div class="form-group">
-          <label for="pricePerKm">Price per KM</label>
-          <input type="number" class="form-control" id="pricePerKm" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.pricePerKm"/>
-        </div>
-        <div class="form-group">
-          <label for="pricePerDay">Price per Day</label>
-          <input type="number" class="form-control" id="pricePerDay" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.pricePerDay"/>
-        </div>
-        <div class="form-group">
-          <label for="kmsPerDay">KMs per Day</label>
-          <input type="number" class="form-control" id="kmsPerDay" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.limitKmsPerDay"/>
-        </div>
-        <div class="form-group">
-          <label for="kmage">Mileage (KM)</label>
-          <input type="number" class="form-control" id="kmage" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.kmage"/>
-        </div>
-        <div class="form-group">
-          <label for="childSeats">Available Child Seats</label>
-          <input type="number" class="form-control" id="childSeats" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.availableChildSeats"/>
-        </div>
+          <div class="form-group">
+            <label for="pricePerKm">Price per KM</label>
+            <input type="number" class="form-control" id="pricePerKm" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.pricePerKm"/>
+          </div>
+          <div class="form-group">
+            <label for="pricePerDay">Price per Day</label>
+            <input type="number" class="form-control" id="pricePerDay" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.pricePerDay"/>
+          </div>
+          <div class="form-group">
+            <label for="kmsPerDay">KMs per Day</label>
+            <input type="number" class="form-control" id="kmsPerDay" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.limitKmsPerDay"/>
+          </div>
+          <div class="form-group">
+            <label for="kmage">Mileage (KM)</label>
+            <input type="number" class="form-control" id="kmage" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.kmage"/>
+          </div>
+          <div class="form-group">
+            <label for="childSeats">Available Child Seats</label>
+            <input type="number" class="form-control" id="childSeats" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.availableChildSeats"/>
+          </div>
 
-        <div class="form-group">
-          <button type="submit" class="btn btn-success">Submit</button>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </form>
         </div>
-      </form>
     </div>
   </div>
 </div>
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.myDiv').each(function(){ const ps = new PerfectScrollbar($(this)[0]); });
+    });
+</script>

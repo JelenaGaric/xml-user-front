@@ -1,0 +1,8 @@
+.myDiv {
+  width: 70%;
+  height: 600px;
+  overflow: auto;
+  overflow-x: hidden;
+  margin: auto;
+  position: relative;
+}

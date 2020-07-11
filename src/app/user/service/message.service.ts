@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {  catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import {Message} from "../../model/message";
+import {Message} from '../../model/message';
 
 @Injectable()
 export class MessageService {
@@ -13,7 +13,9 @@ export class MessageService {
   constructor(private _http: HttpClient) { }
 
   getMessages(receiverId): Observable<Message[]> {
-    return this._http.get<Message[]>(this._messagesUrl, {headers: {receiverId}}).pipe(
+    const headers = new HttpHeaders().set('receiverId', receiverId.toString());
+
+    return this._http.get<Message[]>(this._messagesUrl, { headers}).pipe(
       catchError(this.handleError));
   }
 

@@ -1,55 +1,61 @@
 <div class="panel-header panel-header-xsm">
 </div>
-<div class="main-content">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
 
-          <table class="table">
-            <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col"></th>
-              <th scope="col">Sender</th>
-              <th scope="col">Receiver</th>
-              <th scope="col">Content</th>
-              <th scope="col">Time sent</th>
-              <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor = 'let message of messageList'>
-              <th scope="row"></th>
-              <td class="text-primary">{{message.flag}}</td>
-              <td>{{message.sender}}</td>
-              <td>{{message.receiver}}</td>
-              <td>{{message.content}}</td>
-              <td>{{message.timeSent}}</td>
-              <td *ngIf="message.flag === 'Received'">
+  <div class="main-content">
+    <div class="myDiv">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col">Sender</th>
+                <th scope="col">Receiver</th>
+                <th scope="col">Content</th>
+                <th scope="col">Time sent</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor = 'let message of messageList'>
+                <th scope="row"></th>
+                <td class="text-primary">{{message.flag}}</td>
+                <td>{{message.sender}}</td>
+                <td>{{message.receiver}}</td>
+                <td>{{message.content}}</td>
+                <td>{{message.timeSent}}</td>
+                <td *ngIf="message.flag === 'Received'">
 
-                <li class="nav-item dropdown" style="list-style-type: none">
-                  <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="material-icons">reply</i>
-                    <p>
-                      <span class="d-lg-none d-md-block">Some Actions</span>
-                    </p>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <textarea id="replyText" id="text" (keyup)="onKey($event)" placeholder="Write your message..." ></textarea>
-                    <button class="btn btn-danger" (click)="reply(message.sender)">Reply</button>
-                  </div>
-                </li>
+                  <li class="nav-item dropdown" style="list-style-type: none">
+                    <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="material-icons">reply</i>
+                      <p>
+                        <span class="d-lg-none d-md-block">Reply</span>
+                      </p>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                      <textarea id="replyText" id="text" (keyup)="onKey($event)" placeholder="Write your message..." ></textarea>
+                      <button class="btn btn-danger" (click)="reply(message.sender)">Reply</button>
+                    </div>
+                  </li>
 
-              </td>
-            </tr>
-            </tbody>
-
-          </table>
-
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.myDiv').each(function(){ const ps = new PerfectScrollbar($(this)[0]); });
+    });
+</script>

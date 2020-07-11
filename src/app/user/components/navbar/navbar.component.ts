@@ -37,6 +37,13 @@ export class NavbarUserComponent implements OnInit {
     });
   }
 
+  logout(){
+    alert('Logged out.');
+    localStorage.removeItem('loggedIn');
+    console.log(localStorage.getItem('loggedIn'));
+    this.router.navigate(['']);
+  }
+
   sidebarOpen() {
     const toggleButton = this.toggleButton;
     const body = document.getElementsByTagName('body')[0];
