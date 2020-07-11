@@ -11,14 +11,20 @@ import {Router} from '@angular/router';
 export class RentRequestComponent implements OnInit {
   requests: Rent[] = [];
   deletionId: number;
+  loggedInUser: any;
 
   constructor(private service: RentRequestService, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.service.getAllRequests().subscribe(data => {
-      this.requests = data;
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedIn'));
+    if (this.loggedInUser === null || this.loggedInUser === undefined) {
+      alert('You need to log in for this feature.');
+      this.router.navigate(['user']);
+    }
 
+    this.service.getAllRequests(this.loggedInUser.id.toString()).subscribe(data => {
+      this.requests = data;
     });
   }
   cancelRentRequest(id: string) {

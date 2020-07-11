@@ -11,16 +11,18 @@ import {User} from '../../model/user';
 
 export class CancelReqComponent implements OnInit {
   requests: Rent[] = [];
-  userId: string;
-
+  loggedInUser: any;
 
   constructor(private service: RentRequestService, private router: Router) {
   }
 
   ngOnInit(): void {
-    // there should be logged in user from storage once i fix feign...
-    this.userId = '1';
-    this.service.getClientRequests(this.userId).subscribe(data => {
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedIn'));
+    if (this.loggedInUser === null || this.loggedInUser === undefined) {
+      alert('You need to log in for this feature.');
+      this.router.navigate(['user']);
+    }
+    this.service.getClientRequests(this.loggedInUser.id).subscribe(data => {
       this.requests = data;
 
     });
