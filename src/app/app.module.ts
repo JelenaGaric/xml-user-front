@@ -19,14 +19,15 @@ import {CarService} from './user/service/car.service';
 import {RentRequestService} from './user/service/rent-request.service';
 import { CarComponent } from './user/car/car.component';
 import { RatingsComponent } from './user/ratings/ratings.component';
+import { RatingModule } from 'ng-starrating';
 import { MessagesComponent } from './user/messages/messages.component';
 import {MessageService} from './user/service/message.service';
 import { AddNewCarComponent } from './user/add-new-car/add-new-car.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
 import { ComponentsAdminModule } from './admin/components/components.module';
-import {SafeHtml} from "./pipes/safeHtml.pipe";
-import {SafeHtmlPipeModule} from "./pipes/safeHtmlPipe.module";
+import {SafeHtml} from './pipes/safeHtml.pipe';
+import {SafeHtmlPipeModule} from './pipes/safeHtmlPipe.module';
 import { CartComponent } from './user/cart/cart.component';
 import { LoginRegService } from './services/login-reg-service/login-reg.service';
 
@@ -51,12 +52,15 @@ import { LoginRegService } from './services/login-reg-service/login-reg.service'
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
+
     NgbModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    RatingModule,
     MatFormFieldModule,
     SafeHtmlPipeModule
+
   ],
   providers: [CarService, MessageService, RentRequestService, LoginRegService],
   bootstrap: [AppComponent]

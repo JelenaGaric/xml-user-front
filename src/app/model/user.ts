@@ -4,4 +4,3 @@ export class User {
     password: string;
     roleType: string;
   }
-  

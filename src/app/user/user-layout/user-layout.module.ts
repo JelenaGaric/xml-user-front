@@ -16,6 +16,7 @@ import { DropdownListModule } from 'ngx-dropdown-list';
 import { ComponentsUserModule } from '../components/components.module';
 import { LoginComponent } from 'src/app/login/login.component';
 import { RegistrationComponent } from 'src/app/registration/registration.component';
+import {CancelReqComponent} from '../cancel-req/cancel-req.component';
 import {AdComponent} from '../ad/ad.component';
 import {RatingModule} from 'ng-starrating';
 import {SafeHtml} from "../../pipes/safeHtml.pipe";
@@ -43,6 +44,8 @@ import {YesNoPipe} from "../../pipes/yes-no.pipe";
     LoginComponent,
     RegistrationComponent,
     RentRequestComponent,
+    CancelReqComponent,
+
     AdComponent,
     YesNoPipe
   ],

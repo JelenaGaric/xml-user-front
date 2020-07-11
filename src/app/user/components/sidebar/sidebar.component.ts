@@ -13,7 +13,9 @@ export const ROUTES: RouteInfo[] = [
   { path: '/user/addNewCar', title: 'Add New Car',  icon: 'add', class: '' },
   { path: '/user/messages', title: 'Messages',  icon: 'message', class: '' },
   { path: '/user/rentReq', title: 'Rent request', icon: 'notebook', class: ''},
-  { path: '/user/cart', title: 'Cart', icon: 'shopping_cart', class: ''}
+  { path: '/user/cart', title: 'Cart', icon: 'shopping_cart', class: ''},
+  { path: '/user/cancelReq', title: 'History', icon: 'history', class: ''}
+
 ];
 
 @Component({
