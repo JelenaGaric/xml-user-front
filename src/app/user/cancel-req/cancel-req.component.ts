@@ -11,7 +11,6 @@ import {User} from '../../model/user';
 
 export class CancelReqComponent implements OnInit {
   requests: Rent[] = [];
-  loggedIn: User;
   userId: string;
 
 
@@ -19,6 +18,7 @@ export class CancelReqComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // there should be logged in user from storage once i fix feign...
     this.userId = '1';
     this.service.getClientRequests(this.userId).subscribe(data => {
       this.requests = data;
