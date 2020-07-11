@@ -1,40 +1,52 @@
-<div id="divForTable" class="animated slideInLeft">
-  <h1 class="card-title text-center"> </h1>
-  <div class="col-lg">
-    <div class="card">
-      <div class="card-body">
-        <form>
-          <div class="align-items-center">
-            <div *ngIf="requests.length !== 0">
-              <div class="note col-lg-6 offset-3 text-center">
-                <h2>History of rent requests</h2>
+  <div class="main-content">
+  <div id="divForTable" class="animated slideInLeft">
+    <h1 class="card-title text-center"> </h1>
+    <div class="col-lg">
+      <div class="card">
+        <div class="card-body">
+          <div class="myDiv">
+          <form>
+            <div class="align-items-center">
+              <div *ngIf="requests.length !== 0">
+                <div class="note col-lg-6 offset-3 text-center">
+                  <h2>History of rent requests</h2>
+                </div>
+                <table id="table" class="table table-bordered table-striped table-hover">
+                  <thead class="thead-dark">
+                  <tr>
+                    <th scope="col" style="text-align:center">Client Id</th>
+                    <th scope="col" style="text-align:center">Reserved From</th>
+                    <th scope="col" style="text-align:center">Reserved To</th>
+                    <th scope="col" style="text-align:center">Request Status</th>
+                    <th scope="col" style="text-align:center">Cancel request</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let req of requests">
+                    <td>{{req.clientId}}</td>
+                    <td>{{req.startDate}}</td>
+                    <td>{{req.endDate}}</td>
+                    <td>{{req.status}}</td>
+                    <td align="center">
+                      <button class="btn btn-danger"
+                              (click)="cancelRentRequest(req.id)"> Cancel </button>
+                    </td>
+                  </tr>
+                </table>
               </div>
-              <table id="table" class="table table-bordered table-striped table-hover">
-                <thead class="thead-dark">
-                <tr>
-                  <th scope="col" style="text-align:center">Client Id</th>
-                  <th scope="col" style="text-align:center">Reserved From</th>
-                  <th scope="col" style="text-align:center">Reserved To</th>
-                  <th scope="col" style="text-align:center">Request Status</th>
-                  <th scope="col" style="text-align:center">Cancel request</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let req of requests">
-                  <td>{{req.clientId}}</td>
-                  <td>{{req.startDate}}</td>
-                  <td>{{req.endDate}}</td>
-                  <td>{{req.status}}</td>
-                  <td align="center">
-                    <button class="btn btn-danger"
-                            (click)="cancelRentRequest(req.id)"> Cancel </button>
-                  </td>
-                </tr>
-              </table>
             </div>
+          </form>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.myDiv').each(function(){ const ps = new PerfectScrollbar($(this)[0]); });
+    });
+</script>

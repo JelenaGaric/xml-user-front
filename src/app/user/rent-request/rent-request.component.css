@@ -1,4 +1,5 @@
 .myDiv {
+  height: 700px;
   overflow: auto;
   overflow-x: hidden;
   margin: auto;

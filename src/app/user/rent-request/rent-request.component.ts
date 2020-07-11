@@ -5,7 +5,8 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-rent-request',
-  templateUrl: './rent-request.component.html'
+  templateUrl: './rent-request.component.html',
+  styleUrls: ['./rent-request.component.css']
 })
 export class RentRequestComponent implements OnInit {
   requests: Rent[] = [];
