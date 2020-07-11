@@ -10,31 +10,31 @@ import { User } from '../model/user';
 })
 
 export class LoginComponent {
-  
+
   user: User = new User();
 
 
   constructor(private _loginRegService: LoginRegService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    
+
   }
 
   logIn() {
     console.log(this.user);
     this._loginRegService.getUser(this.user)
-    .subscribe( data => {
-      console.log(data);
-      localStorage.setItem("loggedIn", JSON.stringify(data));
-        if(data.roleType == "BASIC_USER"){
-          this.router.navigate(['user']);
-        }
-        else {
-          this.router.navigate(['admin']);
-        }
-      },
-      error => alert("Wrong username or password.")
-    );
+      .subscribe( data => {
+          console.log(data);
+          localStorage.setItem('loggedIn', JSON.stringify(data));
+          if(data.roleType == 'BASIC_USER'){
+            this.router.navigate(['user']);
+          }
+          else {
+            this.router.navigate(['admin']);
+          }
+        },
+        error => alert('Wrong username or password.')
+      );
   }
 
 }

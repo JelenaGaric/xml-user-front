@@ -11,10 +11,8 @@ export const ROUTES: RouteInfo[] = [
   { path: '/user/carlist', title: 'Car List',  icon: 'library_books', class: '' },
   { path: '/user/search', title: 'Search',  icon: 'content_paste', class: '' },
   { path: '/user/addNewCar', title: 'Add New Car',  icon: 'add', class: '' },
-  { path: '/user/login', title: 'Login',  icon: 'person', class: '' },
   { path: '/user/messages', title: 'Messages',  icon: 'message', class: '' },
-  { path: '/user/register', title: 'Register',  icon: 'bubble_chart', class: '' },
-  { path: '/user/rentReq', title: 'Rent request', icon: 'book', class: ''},
+  { path: '/user/rentReq', title: 'Rent request', icon: 'notebook', class: ''},
   { path: '/user/cart', title: 'Cart', icon: 'shopping_cart', class: ''},
   { path: '/user/cancelReq', title: 'History', icon: 'history', class: ''}
 

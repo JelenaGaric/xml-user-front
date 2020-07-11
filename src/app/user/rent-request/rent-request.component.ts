@@ -5,22 +5,39 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-rent-request',
-  templateUrl: './rent-request.component.html'
+  templateUrl: './rent-request.component.html',
+  styleUrls: ['./rent-request.component.css']
 })
 export class RentRequestComponent implements OnInit {
   requests: Rent[] = [];
   deletionId: number;
+  loggedInUser: any;
 
   constructor(private service: RentRequestService, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.service.getAllRequests().subscribe(data => {
-      this.requests = data;
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedIn'));
+    if (this.loggedInUser === null || this.loggedInUser === undefined) {
+      alert('You need to log in for this feature.');
+      this.router.navigate(['user']);
+    }
 
+    this.service.getAllRequests(this.loggedInUser.id.toString()).subscribe(data => {
+      this.requests = data;
     });
   }
-  cancelRentRequest(id: string) {
+
+  cancelRentRequest(id: string){
+  for(let rent of this.requests){
+      if (rent.id == id){
+        if(rent.status == 'PAID'){
+          alert('You cannot reject a paid request!');
+          return;
+         }
+      }
+    }
+
     this.service.cancelRequest(id).subscribe(data => {
       alert('Successfully deleted!');
       window.location.reload();
@@ -34,5 +51,7 @@ export class RentRequestComponent implements OnInit {
         window.location.reload();
       });
     }
-
+    openAd(carId: string) {
+      this.router.navigate(['/user/carlist/' + carId]);
+    }
 }

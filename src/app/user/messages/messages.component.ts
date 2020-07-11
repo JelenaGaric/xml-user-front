@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MessageService} from '../service/message.service';
 import {Message} from '../../model/message';
+import {AddNewCarService} from "../service/add-new-car.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-messages',
@@ -8,23 +10,25 @@ import {Message} from '../../model/message';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-  messageList: Message[];
-  userId: string;
-  username: string;
-  inputValue: string;
 
-  constructor(private _messageService: MessageService) { }
+  messageList: Message[];
+
+  inputValue: string;
+  loggedInUser: any;
+
+  constructor(private _messageService: MessageService, private router: Router) { }
 
   ngOnInit(): void {
     this.messageList = [];
-    // ovo ce se kupiti iz local storagea
-    this.userId = '1';
-    this.username = 'guest1';
-    this._messageService.getMessages(this.userId)
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedIn'));
+    if (this.loggedInUser === null || this.loggedInUser === undefined) {
+      alert('You need to log in for this feature.');
+      this.router.navigate(['user']);
+    }
+    this._messageService.getMessages(this.loggedInUser.id)
       .subscribe( data => {
-        console.log(data);
         for (const message of data) {
-          if (message.receiver === 'guest1') {
+          if (message.receiver === this.loggedInUser.username) {
             message.flag = 'Received';
           }
           else {
@@ -35,12 +39,13 @@ export class MessagesComponent implements OnInit {
       });
   }
   onKey(event) {this.inputValue = event.target.value; }
+
   reply(receiver: string){
     const message: Message = new Message();
     message.receiver = receiver;
     message.content = this.inputValue;
 
-    this._messageService.sendMessage(this.userId, message)
+    this._messageService.sendMessage(this.loggedInUser.id.toString(), message)
       .subscribe( data => {
           data.flag = 'Sent';
           this.messageList.push(data);

@@ -1,6 +1,7 @@
 <div class="main-content">
   <div class="col-12 mx-5 px-5">
     <div class="row">
+      <div class="myDiv">
       <form (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="brand">Car Brand</label>
@@ -18,6 +19,16 @@
             <option selected disabled>Select</option>
             <option *ngFor="let carModel of possibleModels" [value]="carModel.id">
               {{carModel.name}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location</label>
+          <select class="form-control" id="location" [ngModelOptions]="{standalone: true}" [(ngModel)]="carDTO.locationId">
+            <option selected disabled>Select</option>
+            <option *ngFor="let location of locations" [value]="location.id">
+              {{location.name}}
             </option>
           </select>
         </div>
@@ -76,9 +87,24 @@
         </div>
 
         <div class="form-group">
+          <label for="image" class="btn btn-success">Upload image</label>
+          <input type="file" class="form-control" accept="image/*" id="image" (change) = 'onFileSelected($event)'>
+          <img [src]="imageUrl | safeHtml"  height="200"> <br/>
+        </div>
+
+        <div class="form-group">
           <button type="submit" class="btn btn-success">Submit</button>
         </div>
       </form>
+      </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.myDiv').each(function(){ const ps = new PerfectScrollbar($(this)[0]); });
+    });
+</script>

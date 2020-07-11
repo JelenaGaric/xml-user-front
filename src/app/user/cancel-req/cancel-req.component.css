@@ -1,0 +1,6 @@
+.myDiv {
+  overflow: auto;
+  overflow-x: hidden;
+  margin: auto;
+  position: relative;
+}

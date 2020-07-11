@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CartService} from './cart.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cart',
@@ -9,10 +10,16 @@ import {CartService} from './cart.service';
 export class CartComponent implements OnInit {
   cart;
   cars;
+  loggedInUser: any;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedIn'));
+    if (this.loggedInUser === null || this.loggedInUser === undefined) {
+      alert('You need to log in for this feature.');
+      this.router.navigate(['user']);
+    }
     this.cart = [];
     this.cars = [];
     this.cart = JSON.parse(localStorage.getItem('cart'));
