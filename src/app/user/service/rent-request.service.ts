@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Rent} from '../../model/rentRequest';
+import {catchError} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,10 @@ export class RentRequestService {
 
   getAllRequests() {
     return this.httpClient.get<Rent[]>('http://localhost:8080/rent-service/all');
+  }
+
+  getClientRequests(id: string) {
+    return this.httpClient.get<Rent[]>('http://localhost:8080/rent-service/client' + '/' + id);
   }
 
   cancelRequest(id: string) {

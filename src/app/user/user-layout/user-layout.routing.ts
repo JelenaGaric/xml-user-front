@@ -10,6 +10,7 @@ import {MessagesComponent} from '../messages/messages.component';
 import {AddNewCarComponent} from '../add-new-car/add-new-car.component';
 import {RentRequestComponent} from '../rent-request/rent-request.component';
 import {CartComponent} from '../cart/cart.component';
+import {CancelReqComponent} from '../cancel-req/cancel-req.component';
 
 export const UserLayoutRoutes: Routes = [
   { path: 'carlist', component: CarListComponent },
@@ -21,6 +22,7 @@ export const UserLayoutRoutes: Routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'addNewCar', component: AddNewCarComponent},
   { path: 'rentReq', component: RentRequestComponent},
-  { path: 'cart', component: CartComponent}
+  { path: 'cart', component: CartComponent},
+  { path: 'cancelReq', component: CancelReqComponent}
 
 ];

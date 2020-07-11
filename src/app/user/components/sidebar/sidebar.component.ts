@@ -14,8 +14,10 @@ export const ROUTES: RouteInfo[] = [
   { path: '/user/login', title: 'Login',  icon: 'person', class: '' },
   { path: '/user/messages', title: 'Messages',  icon: 'message', class: '' },
   { path: '/user/register', title: 'Register',  icon: 'bubble_chart', class: '' },
-  { path: '/user/rentReq', title: 'Rent request', icon: 'notebook', class: ''},
-  { path: '/user/cart', title: 'Cart', icon: 'shopping_cart', class: ''}
+  { path: '/user/rentReq', title: 'Rent request', icon: 'book', class: ''},
+  { path: '/user/cart', title: 'Cart', icon: 'shopping_cart', class: ''},
+  { path: '/user/cancelReq', title: 'History', icon: 'history', class: ''}
+
 ];
 
 @Component({

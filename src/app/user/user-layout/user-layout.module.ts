@@ -10,12 +10,13 @@ import {RentRequestComponent} from '../rent-request/rent-request.component';
 
 import { ChartsModule } from 'ng2-charts';
 import { ToastrModule } from 'ngx-toastr';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DropdownListModule } from 'ngx-dropdown-list';
 
 import { ComponentsUserModule } from '../components/components.module';
 import { LoginComponent } from 'src/app/login/login.component';
 import { RegistrationComponent } from 'src/app/registration/registration.component';
+import {CancelReqComponent} from '../cancel-req/cancel-req.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,9 @@ import { RegistrationComponent } from 'src/app/registration/registration.compone
     SearchComponent,
     LoginComponent,
     RegistrationComponent,
-    RentRequestComponent
+    RentRequestComponent,
+    CancelReqComponent
+
   ],
   bootstrap: [
   ]
