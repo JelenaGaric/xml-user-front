@@ -1,4 +1,4 @@
-export class CarClassDTO {
+export class TransmissionDTOh {
   id: string;
   name: string;
 }

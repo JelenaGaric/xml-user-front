@@ -15,6 +15,7 @@ export class CarComponent implements OnInit {
   selectedId: string;
   startDate: Date;
   endDate: Date;
+  waiver: boolean = false;
 
   imageUrl: string;
 
@@ -59,6 +60,7 @@ export class CarComponent implements OnInit {
       carId: this.selectedId,
       startDate: this.startDate,
       endDate: this.endDate,
+      waiver: this.waiver,
       clientId: '1'
     });
 
