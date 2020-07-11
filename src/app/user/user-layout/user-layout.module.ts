@@ -10,13 +10,19 @@ import {RentRequestComponent} from '../rent-request/rent-request.component';
 
 import { ChartsModule } from 'ng2-charts';
 import { ToastrModule } from 'ngx-toastr';
-import {NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DropdownListModule } from 'ngx-dropdown-list';
 
 import { ComponentsUserModule } from '../components/components.module';
 import { LoginComponent } from 'src/app/login/login.component';
 import { RegistrationComponent } from 'src/app/registration/registration.component';
 import {CancelReqComponent} from '../cancel-req/cancel-req.component';
+import {AdComponent} from '../ad/ad.component';
+import {RatingModule} from 'ng-starrating';
+import {SafeHtml} from "../../pipes/safeHtml.pipe";
+import {SafeHtmlPipeModule} from "../../pipes/safeHtmlPipe.module";
+import {YesNoPipe} from "../../pipes/yes-no.pipe";
+
 
 @NgModule({
   imports: [
@@ -28,7 +34,9 @@ import {CancelReqComponent} from '../cancel-req/cancel-req.component';
     NgbModule,
     ComponentsUserModule,
     ReactiveFormsModule,
-    DropdownListModule
+    DropdownListModule,
+    RatingModule,
+    SafeHtmlPipeModule
   ],
   declarations: [
     CarListComponent,
@@ -36,8 +44,10 @@ import {CancelReqComponent} from '../cancel-req/cancel-req.component';
     LoginComponent,
     RegistrationComponent,
     RentRequestComponent,
-    CancelReqComponent
+    CancelReqComponent,
 
+    AdComponent,
+    YesNoPipe
   ],
   bootstrap: [
   ]

@@ -22,7 +22,12 @@ export class RentRequestService {
   cancelRequest(id: string) {
     return this.httpClient.delete('http://localhost:8080/rent-service/' + id);
   }
+
   approveRequest(id: string) {
     return this.httpClient.put('http://localhost:8080/rent-service/' + id, null);
+  }
+
+  blockCar(rent: any) {
+    return this.httpClient.post('http://localhost:8080/rent-service/notAvailable', rent);
   }
 }

@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app.routing';
 import {HttpClientModule} from '@angular/common/http';
 import {UserLayoutComponent} from './user/user-layout/user-layout.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ToastrModule} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CarService} from './user/service/car.service';
@@ -26,8 +26,10 @@ import { AddNewCarComponent } from './user/add-new-car/add-new-car.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
 import { ComponentsAdminModule } from './admin/components/components.module';
+import {SafeHtml} from './pipes/safeHtml.pipe';
+import {SafeHtmlPipeModule} from './pipes/safeHtmlPipe.module';
 import { CartComponent } from './user/cart/cart.component';
-import {NotifierService} from 'angular-notifier';
+import { LoginRegService } from './services/login-reg-service/login-reg.service';
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import {NotifierService} from 'angular-notifier';
     RatingsComponent,
     AddNewCarComponent,
     AdminLayoutComponent,
-    CartComponent],
+    CartComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -55,9 +58,11 @@ import {NotifierService} from 'angular-notifier';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     RatingModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    SafeHtmlPipeModule
+
   ],
-  providers: [CarService, MessageService, RentRequestService, NotifierService],
+  providers: [CarService, MessageService, RentRequestService, LoginRegService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
