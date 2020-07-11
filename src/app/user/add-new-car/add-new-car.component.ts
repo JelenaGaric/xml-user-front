@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AddNewCarService} from './add-new-car.service';
 import {CarDTO} from './dtos/carDTO';
-import {CodebookDTO} from './dtos/codebookDTO';
-import {CarModelDTO} from './dtos/carModelDTO';
-import {Router} from "@angular/router";
 import {CodebookDTOh} from './dtos/codebookDTOh';
 import {CarModelDTOh} from './dtos/carModelDTOh';
 
@@ -14,15 +11,16 @@ import {CarModelDTOh} from './dtos/carModelDTOh';
 })
 export class AddNewCarComponent implements OnInit {
   carDTO: CarDTO;
+  codebookDTOh: CodebookDTOh;
+  possibleModels: CarModelDTOh[];
+
+  constructor(private addNewCarService: AddNewCarService) {
+    this.carDTO = new CarDTO();
     this.codebookDTOh = new CodebookDTOh();
     this.possibleModels = [];
+  }
 
   ngOnInit() {
-    this.loggedInUser = JSON.parse(localStorage.getItem('loggedIn'));
-    if (this.loggedInUser === null || this.loggedInUser === undefined) {
-      alert('You need to log in for this feature.');
-      this.router.navigate(['user']);
-    }
     this.addNewCarService.getCodebook().subscribe(codebookDTO => {
       console.log(codebookDTO);
       this.codebookDTOh = codebookDTO;
