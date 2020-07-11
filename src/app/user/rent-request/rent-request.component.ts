@@ -27,7 +27,17 @@ export class RentRequestComponent implements OnInit {
       this.requests = data;
     });
   }
-  cancelRentRequest(id: string) {
+
+  cancelRentRequest(id: string){
+  for(let rent of this.requests){
+      if (rent.id == id){
+        if(rent.status == 'PAID'){
+          alert('You cannot reject a paid request!');
+          return;
+         }
+      }
+    }
+
     this.service.cancelRequest(id).subscribe(data => {
       alert('Successfully deleted!');
       window.location.reload();
@@ -41,5 +51,7 @@ export class RentRequestComponent implements OnInit {
         window.location.reload();
       });
     }
-
+    openAd(carId: string) {
+      this.router.navigate(['/user/carlist/' + carId]);
+    }
 }

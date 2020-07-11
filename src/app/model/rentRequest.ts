@@ -5,7 +5,7 @@ export class Rent {
   clientId: string;
   client: string;
   advertiser_id: string;
-  advertiser: string;
+  carId: string;
   bundle: boolean;
   bundleId: string;
   status: string;
