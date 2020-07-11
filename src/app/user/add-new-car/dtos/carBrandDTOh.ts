@@ -1,4 +1,4 @@
-export class FuelTypeDTO {
+export class CarBrandDTOh {
   id: string;
   name: string;
 }

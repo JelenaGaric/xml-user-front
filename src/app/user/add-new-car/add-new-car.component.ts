@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AddNewCarService} from './add-new-car.service';
 import {CarDTO} from './dtos/carDTO';
-import {CodebookDTO} from './dtos/codebookDTO';
-import {CarModelDTO} from './dtos/carModelDTO';
+import {CodebookDTOh} from './dtos/codebookDTOh';
+import {CarModelDTOh} from './dtos/carModelDTOh';
 
 @Component({
   selector: 'app-add-new-car',
@@ -11,19 +11,19 @@ import {CarModelDTO} from './dtos/carModelDTO';
 })
 export class AddNewCarComponent implements OnInit {
   carDTO: CarDTO;
-  codebookDTO: CodebookDTO;
-  possibleModels: CarModelDTO[];
+  codebookDTOh: CodebookDTOh;
+  possibleModels: CarModelDTOh[];
 
   constructor(private addNewCarService: AddNewCarService) {
     this.carDTO = new CarDTO();
-    this.codebookDTO = new CodebookDTO();
+    this.codebookDTOh = new CodebookDTOh();
     this.possibleModels = [];
   }
 
   ngOnInit() {
     this.addNewCarService.getCodebook().subscribe(codebookDTO => {
       console.log(codebookDTO);
-      this.codebookDTO = codebookDTO;
+      this.codebookDTOh = codebookDTO;
     }, error => {
       console.log(error);
     });
@@ -38,6 +38,6 @@ export class AddNewCarComponent implements OnInit {
 
   onBrandSelect(brandId: string) {
     // console.log("brandId: " + brandId);
-    this.possibleModels = this.codebookDTO.carModelDTOs.filter(carModel => carModel.brandId == brandId);
+    this.possibleModels = this.codebookDTOh.carModelDTOhs.filter(carModel => carModel.brandId == brandId);
   }
 }
