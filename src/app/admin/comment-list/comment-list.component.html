@@ -1,7 +1,7 @@
 <div class="main-content">
   <div class="row">
     <div class="col-md-12">
-      <div class="card">
+      <div class="card myDiv">
         <div class="card-header">
           <h4 class="card-title"> Manage comments </h4>
 
@@ -35,7 +35,7 @@
                 <td>{{rating.ratingStatus}}</td>
                 <td>
                   <div ngbDropdown class="col-md-10">
-                    <button class="btn btn-danger btn-block" id="dropdownBasic1" ngbDropdownToggle>Action</button>
+                    <button class="btn btn-danger btn-block" id="dropdownBasic1" ngbDropdownToggle> Action </button>
                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                         <button ngbDropdownItem (click)="approve(rating)"> Approve </button>
                         <button ngbDropdownItem (click)="reject(rating)"> Reject </button>
@@ -44,7 +44,7 @@
                 </td>
                 <td>
                   <div class="col-md-10">
-                    <button class="btn btn-danger btn-block" ngbDropdownItem> View ad...</button>
+                    <button class="btn btn-danger btn-block" ngbDropdownItem> View ad... </button>
                   </div>
                 </td>
                 </tr>
@@ -57,3 +57,12 @@
     </div>
   </div>
 </div>
+
+
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.myDiv').each(function(){ const ps = new PerfectScrollbar($(this)[0]); });
+    });
+</script>

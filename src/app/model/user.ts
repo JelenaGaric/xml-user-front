@@ -3,5 +3,6 @@ export class User {
     username: string;
     password: string;
     roleType: string;
+    blocked: string;
   }
   

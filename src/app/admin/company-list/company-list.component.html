@@ -1,0 +1,100 @@
+<div class="main-content ">
+    <div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card myDiv">
+            
+                    <div class="card-header">
+                        <h4 class="card-title"> Manage companies </h4>
+                    </div>
+            
+                    <div class="card-body">
+                        <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-danger">
+                            <th>
+                            Id
+                            </th>
+                            <th>
+                            Name
+                            </th>
+                            <th>
+                            Last name
+                            </th>
+                            <th>
+                            Company name
+                            </th>    
+                            <th>
+                            Address
+                            </th>
+                            <th>
+                            Business Id
+                            </th>
+                            <th>
+                            Blocked
+                            </th>
+                            <th class="text-right">
+            
+                            </th>
+                            </thead>
+                            <tbody>
+                            <ng-container *ngFor="let agent of agents">
+                            <tr>
+                            <td>{{agent.id}}</td>
+                            <td>{{agent.name}}</td>
+                            <td>{{agent.lastname}}</td>
+                            <td>{{agent.agencyName}}</td>
+                            <td>{{agent.address}}</td>
+                            <td>{{agent.businessId}}</td>
+                            <td>{{agent.blocked}}</td>
+                            <td>
+                                <div ngbDropdown class="col-md-10">
+                                <button class="btn btn-danger btn-block" id="dropdownBasic" ngbDropdownToggle>Action</button>
+                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                    <button ngbDropdownItem (click)="unblock(agent.id)"> Unblock </button>
+                                    <button ngbDropdownItem (click)="block(agent.id)"> Block </button>
+                                </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="col-md-10">
+                                <button class="btn btn-danger btn-block" ngbDropdownItem (click)="deleteModal(del,agent) "> Delete company...</button>
+                                </div>
+                            </td>
+                            </tr>
+                            </ng-container>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <ng-template #del let-modal>
+    <div class="modal-header">
+      <h1 class="modal-title" id="modal-basic-title2">Do you want to DELETE company!?</h1>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="delete()" > Ok </button>  
+      <button type="button" class="btn btn-danger " (click)="modal.dismiss('Cross click')" >Close</button>
+    </div>
+  </ng-template>
+
+
+
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.myDiv').each(function(){ const ps = new PerfectScrollbar($(this)[0]); });
+    });
+</script>

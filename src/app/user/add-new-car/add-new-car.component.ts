@@ -30,6 +30,8 @@ export class AddNewCarComponent implements OnInit {
   }
 
   onSubmit() {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedIn'))
+    this.carDTO.ownerId = loggedInUser.id;
     this.addNewCarService.postNewCar(this.carDTO).subscribe(car => {
       console.log(car);
       alert('Successfully added a new car.');

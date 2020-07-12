@@ -1,0 +1,134 @@
+<div class="main-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card myDiv">
+          <div class="card-header">
+            <h4 class="card-title"> Codebook </h4>
+  
+  
+  
+          </div>
+          <div class="card-body">
+
+            <div class="table-responsive table-bordered">
+              <table class="table">
+                <thead class=" text-danger">
+               
+                  <th>
+                  Car Brand
+                </th>
+        
+                
+                </thead>
+                <tbody>
+             
+                  <td *ngFor='let carBrand of codebook.carBrandDTOhs'>
+                                      
+                       {{carBrand.name}}
+                    
+                  </td>
+                  
+                </tbody>
+              </table>
+              
+            </div>
+
+            <div class="table-responsive  table-bordered">
+              <table class="table">
+                <thead class=" text-danger">
+  
+                <th>
+                  Car Model
+                </th>
+                
+                
+                </thead>
+                <tbody>
+             
+                  
+                  <td *ngFor='let carModel of codebook.carModelDTOhs'>
+                    
+                      {{carModel.name}}
+                    
+                  </td>
+                  
+                </tbody>
+              </table>
+              
+            </div>
+
+
+            <div class="table-responsive  table-bordered">
+              <table class="table">
+                <thead class=" text-danger">
+  
+                <th>
+                  Car Class
+                </th>
+                
+        
+                </thead>
+                <tbody>
+             
+                  <td *ngFor='let carClass of codebook.carClassDTOhs'>
+                      {{carClass.name}}
+                  </td>
+                </tbody>
+              </table>
+              
+            </div>
+
+            <div class="table-responsive  table-bordered">
+              <table class="table">
+                <thead class=" text-danger">
+  
+                <th>
+                  Fuel Type
+                </th>
+                
+        
+                </thead>
+                <tbody>
+             
+                  <td *ngFor='let fuelType of codebook.fuelTypeDTOhs'>
+                      {{fuelType.name}}
+                  </td>
+                </tbody>
+              </table>
+              
+            </div>
+            
+            <div class="table-responsive  table-bordered">
+              <table class="table">
+                <thead class=" text-danger">
+  
+                <th>
+                  Transmission
+                </th>
+                
+        
+                </thead>
+                <tbody>
+             
+                  <td *ngFor='let transmission of codebook.transmissionDTOhs'>
+                      {{transmission.name}}
+                  </td>
+                </tbody>
+              </table>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function() {
+          $('.myDiv').each(function(){ const ps = new PerfectScrollbar($(this)[0]); });
+      });
+  </script>

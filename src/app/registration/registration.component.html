@@ -13,42 +13,36 @@
       <h2 style="color:#33cabb">Registration</h2>
     </div>
 
+  
+
+
     <div class="form-group">
-      <input type="text" formControlName="firstname" id="firstname" class="form-control"
-             placeholder="First Name"
-             required/>
+      <input type="email" id="email" name="email"
+             class="form-control" required placeholder="E-mail" 
+            
+             [(ngModel)] = "user.username"/>
     </div>
 
 
     <div class="form-group">
-      <input formControlName="lastname" type="text" id="lastname" class="form-control" required placeholder="Last Name"/>
-    </div>
-
-
-    <div class="form-group">
-      <input type="email" id="email" class="form-control" required placeholder="E-mail" formControlName="email"/>
-    </div>
-
-
-    <div class="form-group">
-      <input type="password" formControlName="password" id="password" name="password" class="form-control" required placeholder="Password"/>
+      <input type="password"
+             id="password" name="password" 
+             class="form-control" required placeholder="Password"
+             [(ngModel)] = "user.password"/>
     </div>
 
     <div class="form-group">
-      <input type="password" formControlName="repeatpassword" id="repeatpassword" class="form-control" required placeholder="Confirm password"/>
+      <input type="password" 
+             id="repeatpassword" class="form-control"  [(ngModel)] = "repeatPassword"
+             required placeholder="Confirm password" name="repeatpassword"
+             />
     </div>
-    <div class="form-group">
-      <input required type="text" formControlName="address" id="address" class="form-control" placeholder="Address"/>
-    </div>
-
-    <div class="form-group">
-      <input type="text" formControlName="phonenumber" id="phoneNumber" class="form-control" placeholder="Phone Number" pattern="[0-9]+"/>
-    </div>
+    
 
     <div class="form-group text-center">
     </div>
     <div class="form-group text-center">
-      <button type="submit" class="btn btn-success">Register</button>
+      <button type="submit" class="btn btn-success" (click)="register()">Register</button>
     </div>
   </form>
 </div>

@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { CarRating } from 'src/app/model/carRating';
 import { ConfigService } from '../config.service';
 import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { User } from 'src/app/model/user';
 
 @Injectable({
     providedIn: 'root'
   })
-export class CarRatingService {
+export class UserListService {
     userId:string;
 
     constructor(private http: HttpClient, private configService: ConfigService) { }
@@ -19,17 +19,46 @@ export class CarRatingService {
       })
     };
 
-    getAllCarRatings(carId: string): Observable<CarRating[]> {
+    getAllUsers(): Observable<User[]> {
 
-      const headers = new HttpHeaders()
-      .set('carId', carId);
-
-      return this.http.get<CarRating[]>(this.configService.carRatingsUrl, {headers:headers})
-        .pipe(
-          catchError(this.handleError)
-        );
+        return this.http.get<User[]>(this.configService.userListUrl)
+            .pipe(
+                catchError(this.handleError)
+            );
     }
 
+    block(user) {
+
+        return this.http.post(this.configService.userListUrl + '/' + 'blockUser', user )
+            .pipe(
+                catchError(this.handleError)
+            );
+    } 
+    
+    unblock(user) {
+
+        return this.http.post(this.configService.userListUrl + '/' + 'activateUser', user )
+            .pipe(
+                catchError(this.handleError)
+            );
+    } 
+
+    delete(user) {
+
+        const options = {
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json',
+            }),
+            body: user,
+          };
+
+        return this.http.delete(this.configService.userListUrl, options )
+            .pipe(
+                catchError(this.handleError)
+            );
+    }
+    
+    /*
     manageComment(rating: CarRating): Observable<any>{
       const loggedInUser = JSON.parse(localStorage.getItem('loggedIn'))
       this.userId = loggedInUser.id;
@@ -40,7 +69,7 @@ export class CarRatingService {
         }
         );
     }
-
+    */
 
     private handleError(err: HttpErrorResponse) {
       console.log(err.message);

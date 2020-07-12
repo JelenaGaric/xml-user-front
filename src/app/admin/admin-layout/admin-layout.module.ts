@@ -11,7 +11,10 @@ import { DropdownListModule } from 'ngx-dropdown-list';
 import { ComponentsAdminModule } from '../components/components.module';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { CommentListComponent } from '../comment-list/comment-list.component';
-
+import { UserListComponent } from '../user-list/user-list.component';
+import { CompanyListComponent } from '../company-list/company-list.component';
+import { CodebookListComponent } from '../codebook-list/codebook-list.component';
+import { CodebookUpdateComponent } from '../codebook-update/codebook-update.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -25,7 +28,11 @@ import { CommentListComponent } from '../comment-list/comment-list.component';
     DropdownListModule
   ],
   declarations: [
-    CommentListComponent
+    CommentListComponent,
+    UserListComponent,
+    CompanyListComponent,
+    CodebookListComponent,
+    CodebookUpdateComponent
   ],
   bootstrap: [
   ]
