@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Car} from '../../model/car';
 import {RentRequestService} from '../service/rent-request.service';
 import {Rent} from '../../model/rentRequest';
+import {Message} from "../../model/message";
+import {MessageService} from "../service/message.service";
 
 @Component({
   selector: 'app-car-component',
@@ -18,6 +20,8 @@ export class CarComponent implements OnInit {
   startDate: Date;
   endDate: Date;
   waiver: boolean = false;
+  inputValue: string;
+
 
   startBlockDate: Date;
   endBlockDate: Date;
@@ -25,7 +29,7 @@ export class CarComponent implements OnInit {
   imageUrl: string;
   private loggedInUser: any;
 
-  constructor(private _carService: CarService, private _rentService: RentRequestService, private router: Router,  private route: ActivatedRoute) { }
+  constructor(private _carService: CarService, private _rentService: RentRequestService, private _messageService: MessageService, private router: Router,  private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -96,5 +100,23 @@ export class CarComponent implements OnInit {
       },
         error => alert('Error while blocking a car.')
       );
+  }
+
+  onKey(event) {this.inputValue = event.target.value; }
+
+  sendMessage(receiverId: string) {
+
+    const message: Message = new Message();
+    this._messageService.getUser(receiverId).subscribe(user => {
+      message.receiver = user.username;
+      message.content = this.inputValue;
+
+      this._messageService.sendMessage(this.loggedInUser.id.toString(), message)
+        .subscribe(data => {
+          alert('Message sent!');
+        }, error => {
+          alert('You haven\'t got any rent requests with that user, so you can\'t share messages with each other.');
+        });
+    });
   }
 }
