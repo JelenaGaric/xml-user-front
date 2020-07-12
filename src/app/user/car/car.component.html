@@ -111,6 +111,21 @@
               <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
             </form>
 
+            <div>
+              <li class="nav-item dropdown" style="list-style-type: none">
+                <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">message</i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Send message</span>
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <textarea id="replyText" id="text" (keyup)="onKey($event)" placeholder="Write your message..." ></textarea>
+                  <button class="btn btn-danger" (click)="sendMessage(car.ownerId)">Send message</button>
+                </div>
+              </li>
+            </div>
+
             <div  [ngStyle]="{'visibility':canBlockCar ? 'visible' : 'hidden'}">
               <h3 class="card-title" style="margin-top: 22%"><b>Block this car</b></h3>
 
